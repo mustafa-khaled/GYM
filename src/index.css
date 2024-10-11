@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-color: #131313;
+    --primary-color: #dc2f02;
+  }
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+/* scrollbar Syles */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
+/* Vertical scrollbar */
+*::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+
+/* Horizontal scrollbar */
+*::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+img,
+a {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
