@@ -29,8 +29,8 @@ function TransformationsSection() {
           <div className="flex w-[65%] items-center gap-[20px]">
             <figure className="relative">
               <img src={afterEx} alt="" />
-              <div className="absolute bottom-[100px] left-[50%] translate-x-[-50%]">
-                <Button variant="tertiary" styles={"w-full w-[199px] h-[56px]"}>
+              <div className="absolute bottom-[100px] left-[50%] w-[199px] translate-x-[-50%]">
+                <Button variant="tertiary" styles={"h-[56px]"}>
                   بعد
                 </Button>
               </div>
@@ -38,8 +38,8 @@ function TransformationsSection() {
 
             <figure className="relative">
               <img src={beforeEx} alt="" />
-              <div className="absolute bottom-[100px] left-[50%] translate-x-[-50%]">
-                <Button variant="tertiary" styles={"w-full w-[199px] h-[56px]"}>
+              <div className="absolute bottom-[100px] left-[50%] w-[199px] translate-x-[-50%]">
+                <Button variant="tertiary" styles={"h-[56px]"}>
                   قبل
                 </Button>
               </div>

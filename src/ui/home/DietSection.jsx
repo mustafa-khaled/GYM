@@ -25,7 +25,6 @@ function DietSection() {
               النظام الغذائي
             </h2>
             <p className="mb-[40px] mt-[32px] text-[20px] font-[600] leading-[30px] sm:text-[16px] sm:leading-[24px] lg:text-[24px] lg:leading-[34px]">
-              {" "}
               خطط غذائية متوازنة لتحقق أهدافك الصحية وتزيد من طاقتك اليومية
             </p>
 
