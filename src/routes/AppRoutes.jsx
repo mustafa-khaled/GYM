@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 
 function AppRoutes() {
   return (
-    <main className="bg-bg_color mt-[64px] min-h-[calc(100vh-64px)]">
+    <main className="mt-[64px] min-h-[calc(100vh-64px)] bg-bg_color">
       <Routes>
         <Route index path="/" element={<Home />} />
       </Routes>
