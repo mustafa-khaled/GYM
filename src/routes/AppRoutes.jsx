@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from "../ui/spinner/Spinner";
-import NotFound from "../pages/NotFound";
 
 const Home = lazy(() => import("../pages/Home"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+const SignUp = lazy(() => import("../pages/SignUp"));
 
 function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ function AppRoutes() {
         <Routes>
           <Route index path="*" element={<NotFound />} />
           <Route index path="/" element={<Home />} />
+          <Route index path="/signUp" element={<SignUp />} />
         </Routes>
       </Suspense>
     </main>
