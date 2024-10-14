@@ -1,90 +1,47 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { FaCheck } from "react-icons/fa6";
-import Button from "../../ui/Button";
-import SelectBox from "../../ui/SelectBox";
+import { useForm, FormProvider } from "react-hook-form";
+import { Link } from "react-router-dom";
+import Step1 from "./Step1";
+import Step2 from "./Step2";
 
-function SignUpForm() {
-  const [checked, setChecked] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const MultiStepForm = () => {
+  const methods = useForm();
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({});
 
-  const toggleChecked = () => setChecked((prev) => !prev);
+  const nextStep = (data) => {
+    setFormData({ ...formData, ...data });
+    setStep(step + 1);
+  };
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const previousStep = () => setStep(step - 1);
+
+  const submitForm = (data) => {
+    const finalData = { ...formData, ...data };
+    console.log("Final Form Data:", finalData);
   };
 
   return (
-    <section className="relative text-[#fff]">
-      <h1 className="mb-[30px] text-[24px] font-[700] leading-[24px]">
-        معلومات صحيه ولياقيه:
-      </h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid h-[70vh] grid-cols-1 gap-[20px] lg:grid-cols-2"
-      >
-        <SelectBox
-          options={["ذكر", "انثي"]}
-          label={"النوع"}
-          name="gender"
-          register={register}
-          validationRules={{ required: "هذا الحقل مطلوب" }}
-          error={errors?.gender?.message}
-        />
-        <SelectBox
-          options={["خسارة وزن", "بناء عضلات", "تحسين اللياقة العامة"]}
-          label={
-            "الأهداف الشخصية: (خسارة وزن، بناء عضلات، تحسين اللياقة العامة)"
-          }
-          name="goal"
-          register={register}
-          validationRules={{ required: "هذا الحقل مطلوب" }}
-          error={errors?.goal?.message}
-        />
+    <FormProvider {...methods}>
+      <section className="relative text-[#fff]">
+        <h1 className="mb-[30px] text-[24px] font-[700] leading-[24px]">
+          {step === 1 && "معلومات صحيه ولياقيه:"}
+          {step === 2 && "البيانات الاساسيه"}
+        </h1>
+        {step === 1 && <Step1 nextStep={nextStep} />}
+        {step === 2 && (
+          <Step2 previousStep={previousStep} submitForm={submitForm} />
+        )}
 
-        <div className="col-span-1 lg:col-span-2">
-          <SelectBox
-            options={["لايوجد مرض", "لدي مرض"]}
-            label={
-              "الحالات الطبية: (إذا كانت هناك أي أمراض أو مشاكل صحية يجب معرفتها)"
-            }
-            name="medicalCondition"
-            register={register}
-            validationRules={{ required: "هذا الحقل مطلوب" }}
-            error={errors?.medicalCondition?.message}
-          />
-        </div>
-
-        <div className="flex flex-col gap-[10px]">
-          <h3 className="text-[20px] font-[700] leading-[24px]">
-            الإقرار بالموافقة:
-          </h3>
-          <p className="text-[14px] font-[600] leading-[24px] text-slate-300">
-            قبول الشروط والأحكام: (يجب أن يوافق المستخدم على شروط الاستخدام)
-            سياسة الخصوصية: (يجب أن يوافق المستخدم على سياسة الخصوصية)
-          </p>
-          <div className="flex items-center gap-[5px]" onClick={toggleChecked}>
-            <div
-              className={`flex h-4 w-4 items-center justify-center rounded-sm text-sm ${checked ? "bg-primary" : "bg-slate-100"} text-[#000]`}
-            >
-              <FaCheck />
-            </div>
-            <label>أوافق</label>
-          </div>
-        </div>
-
-        <div className="col-span-1 lg:col-span-2">
-          <Button type="submit" variant="tertiary">
-            التالي
-          </Button>
-        </div>
-      </form>
-    </section>
+        <p className="mt-[20px] text-center text-[20px] font-[700] leading-[24px]">
+          لديك حساب بالفعل{" "}
+          <Link to="/login" className="text-primary">
+            سجل
+          </Link>
+        </p>
+      </section>
+    </FormProvider>
   );
-}
+};
 
-export default SignUpForm;
+export default MultiStepForm;

@@ -24,8 +24,12 @@ function SelectBox({ options, label, name, register, validationRules, error }) {
 
         <select
           className="form-input cursor-pointer appearance-none font-[600] text-[#000]"
-          {...register(name, validationRules)} // Use name and validation rules here
+          {...register(name, validationRules)}
+          defaultValue=""
         >
+          <option value="" disabled>
+            -- اختر --
+          </option>
           {options?.map((option) => (
             <option key={option} value={option}>
               {option}
