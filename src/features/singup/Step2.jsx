@@ -5,7 +5,7 @@ import { isOnlySpaces } from "../../utils/helpers";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
 
-function Step2({ previousStep, submitForm }) {
+function Step2({ previousStep, submitForm, isLoading }) {
   const {
     register,
     handleSubmit,
@@ -36,6 +36,7 @@ function Step2({ previousStep, submitForm }) {
         }}
         placeholder="الاسم بالكامل"
         error={errors?.name?.message}
+        disabled={isLoading}
       />
 
       <Input
@@ -51,6 +52,7 @@ function Step2({ previousStep, submitForm }) {
         }}
         placeholder="البريد الالكتروني"
         error={errors?.email?.message}
+        disabled={isLoading}
       />
 
       <Input
@@ -66,6 +68,7 @@ function Step2({ previousStep, submitForm }) {
         placeholder="كلمه المرور"
         error={errors?.password?.message}
         type="password"
+        disabled={isLoading}
       />
 
       <Input
@@ -79,10 +82,11 @@ function Step2({ previousStep, submitForm }) {
         placeholder="تأكيد كلمه المرور"
         error={errors?.confirmPassword?.message}
         type="password"
+        disabled={isLoading}
       />
 
       <div className="col-span-1 lg:col-span-2">
-        <Button type="submit" variant="tertiary">
+        <Button disabled={isLoading} type="submit" variant="tertiary">
           تسجيل
         </Button>
       </div>

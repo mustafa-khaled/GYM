@@ -4,6 +4,7 @@ function Button({
   onClick,
   type = "button",
   styles,
+  disabled,
 }) {
   const baseStyles = "h-[36px] w-full rounded-[4px] font-medium transition-all";
 
@@ -19,6 +20,7 @@ function Button({
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`${baseStyles} ${variantStyles[variant]} disabled:cursor-not-allowed ${styles}`}
     >
       {children}

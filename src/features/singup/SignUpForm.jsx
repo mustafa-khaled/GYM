@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import { useSingUp } from "./useSingUp";
 import { Link } from "react-router-dom";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 
 const MultiStepForm = () => {
   const methods = useForm();
+
+  const { signUp, isLoading } = useSingUp();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
 
@@ -18,6 +21,8 @@ const MultiStepForm = () => {
 
   const submitForm = (data) => {
     const finalData = { ...formData, ...data };
+
+    signUp(finalData);
     console.log("Final Form Data:", finalData);
   };
 
@@ -30,7 +35,11 @@ const MultiStepForm = () => {
         </h1>
         {step === 1 && <Step1 nextStep={nextStep} />}
         {step === 2 && (
-          <Step2 previousStep={previousStep} submitForm={submitForm} />
+          <Step2
+            isLoading={isLoading}
+            previousStep={previousStep}
+            submitForm={submitForm}
+          />
         )}
 
         <p className="mt-[20px] text-center text-[20px] font-[700] leading-[24px]">

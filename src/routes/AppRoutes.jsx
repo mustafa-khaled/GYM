@@ -5,6 +5,7 @@ import Spinner from "../ui/spinner/Spinner";
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const SignUp = lazy(() => import("../pages/SignUp"));
+const Login = lazy(() => import("../pages/Login"));
 
 function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ function AppRoutes() {
           <Route index path="*" element={<NotFound />} />
           <Route index path="/" element={<Home />} />
           <Route index path="/signUp" element={<SignUp />} />
+          <Route index path="/login" element={<Login />} />
         </Routes>
       </Suspense>
     </main>
