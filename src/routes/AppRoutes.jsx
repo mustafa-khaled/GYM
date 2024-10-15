@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from "../ui/spinner/Spinner";
 
@@ -6,6 +6,25 @@ const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const Login = lazy(() => import("../pages/Login"));
+
+const Notifications = lazy(
+  () => import("../pages/notifications/Notifications"),
+);
+const DailyNotification = lazy(
+  () => import("../pages/notifications/DailyNotification"),
+);
+const WeeklyNotifications = lazy(
+  () => import("../pages/notifications/WeeklyNotifications"),
+);
+const WeightDevelopmentAndPhysicalHealth = lazy(
+  () => import("../pages/notifications/WeightDevelopmentAndPhysicalHealth"),
+);
+const MeasurementsAndPictures = lazy(
+  () => import("../pages/notifications/MeasurementsAndPictures"),
+);
+const WeightsDevelopment = lazy(
+  () => import("../pages/notifications/WeightsDevelopment"),
+);
 
 function AppRoutes() {
   return (
@@ -16,6 +35,18 @@ function AppRoutes() {
           <Route index path="/" element={<Home />} />
           <Route index path="/signUp" element={<SignUp />} />
           <Route index path="/login" element={<Login />} />
+
+          <Route path="notifications" element={<Notifications />}>
+            <Route index element={<Navigate replace to="daily" />} />
+            <Route path="daily" element={<DailyNotification />} />
+            <Route path="weekly" element={<WeeklyNotifications />} />
+            <Route
+              path="health"
+              element={<WeightDevelopmentAndPhysicalHealth />}
+            />
+            <Route path="measurements" element={<MeasurementsAndPictures />} />
+            <Route path="weights" element={<WeightsDevelopment />} />
+          </Route>
         </Routes>
       </Suspense>
     </main>
