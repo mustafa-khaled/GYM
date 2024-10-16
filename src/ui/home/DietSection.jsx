@@ -8,12 +8,12 @@ function DietSection() {
   return (
     <section className="py-[30px]">
       <Container>
-        <div className="relative flex min-h-[720px] bg-black text-[#fff]">
-          <div className="w-full md:w-[35%]">
+        <div className="relative flex min-h-[720px] rounded-md bg-black text-[#fff]">
+          <div className="w-full rounded-md md:w-[35%]">
             <img
               src={diet1}
               alt="a man exercising"
-              className="h-full w-full object-cover"
+              className="h-full w-full rounded-r-md object-cover"
             />
           </div>
           <div className="hidden items-center justify-center md:flex md:w-[65%]">

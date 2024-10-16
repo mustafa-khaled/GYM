@@ -4,7 +4,7 @@ import Button from "../Button";
 function LoginButton() {
   return (
     <Link to={"/login"} className="w-[100px]">
-      <Button styles={"text-white"}>تسجيل</Button>
+      <Button styles={"!font-[700]"}>تسجيل</Button>
     </Link>
   );
 }

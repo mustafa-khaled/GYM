@@ -7,13 +7,13 @@ function ExercisesSection() {
   return (
     <section className="py-[30px]">
       <Container>
-        <div className="relative flex min-h-[720px] bg-black text-[#fff]">
+        <div className="relative flex min-h-[720px] rounded-md bg-black text-[#fff]">
           <div className="hidden md:block md:w-[50%]"></div>
           <div className="w-full md:w-[50%]">
             <img
               src={exersizeImage}
               alt="man exercising"
-              className="h-full object-cover"
+              className="h-full rounded-l-md object-cover"
             />
           </div>
 

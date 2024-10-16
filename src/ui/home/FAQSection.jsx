@@ -91,7 +91,7 @@ function FAQSection() {
               return (
                 <article
                   key={quiz.id}
-                  className={`w-full cursor-pointer p-[10px] text-black ${isActive ? "bg-gradient-to-br from-[#FFFFFF] to-primary" : "bg-[#FFFFFF]"}`}
+                  className={`w-full cursor-pointer rounded-md p-[10px] text-black ${isActive ? "bg-gradient-to-br from-[#FFFFFF] to-primary" : "bg-[#FFFFFF]"}`}
                   onClick={() => toggleQuestion(quiz.id)}
                 >
                   <h2 className="flex items-center justify-between text-[24px] font-[600] leading-[42px]">
