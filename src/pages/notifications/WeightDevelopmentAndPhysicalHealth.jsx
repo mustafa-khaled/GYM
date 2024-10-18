@@ -1,7 +1,12 @@
+import HealthNotificationSection from "../../features/notifications/health/HealthNotificationSection";
 import Container from "../../ui/Container";
 
 function WeightDevelopmentAndPhysicalHealth() {
-  return <Container>WeightDevelopmentAndPhysicalHealth</Container>;
+  return (
+    <Container>
+      <HealthNotificationSection />
+    </Container>
+  );
 }
 
 export default WeightDevelopmentAndPhysicalHealth;
