@@ -1,7 +1,7 @@
 const Table = ({ children }) => {
   return (
-    <div className="overflow-x-auto rounded-t-md">
-      <table className="border-secondary w-full rounded-t-md p-[10px] text-left text-sm rtl:text-right">
+    <div className="overflow-x-auto">
+      <table className="w-full border border-slate-500 p-[10px] text-left text-sm rtl:text-right">
         {children}
       </table>
     </div>
@@ -10,7 +10,7 @@ const Table = ({ children }) => {
 
 const Header = ({ children }) => {
   return (
-    <thead className="rounded-t-md bg-[#000] text-xs uppercase">
+    <thead className="bg-[#000] text-xs uppercase">
       <tr className="text-center">{children}</tr>
     </thead>
   );
@@ -31,7 +31,10 @@ const Row = ({ children }) => {
 const Cell = ({ children, isHeader = false }) => {
   const Tag = isHeader ? "th" : "td";
   return (
-    <Tag scope={isHeader ? "col" : "row"} className="px-6 py-4">
+    <Tag
+      scope={isHeader ? "col" : "row"}
+      className="border-l border-slate-500 px-6 py-4"
+    >
       {children}
     </Tag>
   );

@@ -48,7 +48,7 @@ function Step1({ nextStep, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["لايوجد", "متوسط", "عالي"]}
         label={"مستوي الجوع"}
         name="hungerRate"
         register={register}
@@ -57,7 +57,7 @@ function Step1({ nextStep, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["لايوجد", "متوسط", "عالي"]}
         label={"التوتر"}
         name="stress"
         register={register}
@@ -66,7 +66,7 @@ function Step1({ nextStep, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["سيئه", "متوسطه", "جوده عاليه"]}
         label={"النوم"}
         name="sleeping"
         register={register}
@@ -75,7 +75,7 @@ function Step1({ nextStep, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["سيئه", "متوسطه", "جوده عاليه"]}
         label={"جوده النوم"}
         name="sleepingQuality"
         register={register}

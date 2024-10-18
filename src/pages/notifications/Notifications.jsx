@@ -8,15 +8,15 @@ function Notifications() {
       <NotificationsNav />
 
       <section
-        className="relative h-[calc(100vh-114px)] overflow-y-auto"
+        className="relative min-h-[calc(100vh-90px)]"
         style={{
           backgroundImage: `url(${image})`,
           backgroundPosition: "50%",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="fixed left-0 top-0 mt-[114px] h-[calc(100vh-114px)] w-full bg-gradient-to-br from-black/10 to-[#240101]" />
-        <div className="relative my-[20px] min-h-[calc(100vh-114px)] overflow-y-auto text-[#fff]">
+        <div className="fixed left-0 top-0 h-[100vh] w-full bg-gradient-to-br from-black/10 to-[#240101]" />
+        <div className="relative py-[20px] text-[#fff]">
           <Outlet />
         </div>
       </section>

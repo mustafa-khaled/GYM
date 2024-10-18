@@ -1,4 +1,12 @@
-function SelectBox({ options, label, name, register, validationRules, error }) {
+function SelectBox({
+  options,
+  label,
+  name,
+  register,
+  validationRules,
+  error,
+  styles,
+}) {
   return (
     <div className="w-full">
       <label className="block text-[16px] font-medium leading-[24px] text-[#fff]">
@@ -23,7 +31,7 @@ function SelectBox({ options, label, name, register, validationRules, error }) {
         </span>
 
         <select
-          className="form-input cursor-pointer appearance-none font-[600] text-[#000]"
+          className={`form-input ${styles} cursor-pointer appearance-none rounded-md font-[600] text-[#000]`}
           {...register(name, validationRules)}
           defaultValue=""
         >
@@ -31,7 +39,7 @@ function SelectBox({ options, label, name, register, validationRules, error }) {
             -- اختر --
           </option>
           {options?.map((option) => (
-            <option key={option} value={option}>
+            <option key={option} value={option} className="text-[#000]">
               {option}
             </option>
           ))}

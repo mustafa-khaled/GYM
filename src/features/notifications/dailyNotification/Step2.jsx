@@ -36,7 +36,7 @@ function Step2({ previousStep, submitForm, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["لايوجد", "متوسط", "عالي"]}
         label={"التوتر"}
         name="stress2"
         register={register}
@@ -45,7 +45,7 @@ function Step2({ previousStep, submitForm, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["لايوجد", "متوسط", "عالي"]}
         label={"الارهاق"}
         name="Fatigue"
         register={register}
@@ -54,7 +54,7 @@ function Step2({ previousStep, submitForm, isLoading }) {
       />
 
       <SelectBox
-        options={["عالي", "متوسط"]}
+        options={["هناك مشاكس", "طبيعي", "لا يوجد مشاكل"]}
         label={"هل يوجد مشاكل بالدوره"}
         name="periodProblems"
         register={register}
