@@ -28,12 +28,12 @@ const Row = ({ children }) => {
   );
 };
 
-const Cell = ({ children, isHeader = false }) => {
+const Cell = ({ children, isHeader = false, styles }) => {
   const Tag = isHeader ? "th" : "td";
   return (
     <Tag
       scope={isHeader ? "col" : "row"}
-      className="border-l border-slate-500 px-6 py-4"
+      className={`border-l border-slate-500 p-[8px] ${styles}`}
     >
       {children}
     </Tag>

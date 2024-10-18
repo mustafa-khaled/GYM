@@ -1,7 +1,12 @@
+import MeasurementsAndPicturesSection from "../../features/notifications/measurementsAndPictures/MeasurementsAndPicturesSection";
 import Container from "../../ui/Container";
 
 function MeasurementsAndPictures() {
-  return <Container>MeasurementsAndPictures</Container>;
+  return (
+    <Container>
+      <MeasurementsAndPicturesSection />
+    </Container>
+  );
 }
 
 export default MeasurementsAndPictures;
