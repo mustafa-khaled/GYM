@@ -13,7 +13,7 @@ function Button({
     secondary:
       "bg-transparent border border-[#fff] text-[#fff] hover:text-primary hover:border-primary",
     tertiary:
-      "bg-primary text-black hover:bg-[#e35935] disabled:bg-[#90280d] h-[72px] md:text-[20px] text-[16px] font-[900] !font-bold",
+      "bg-primary text-black hover:bg-[#e35935] disabled:bg-[#90280d] h-[50px] md:text-[20px] text-[16px] font-[900] !font-bold",
   };
 
   return (

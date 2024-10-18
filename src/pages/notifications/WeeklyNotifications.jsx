@@ -1,7 +1,12 @@
+import WeeklyNotificationsSection from "../../features/notifications/weeklyNotifications/WeeklyNotificationsSection";
 import Container from "../../ui/Container";
 
 function WeeklyNotifications() {
-  return <Container>WeeklyNotifications</Container>;
+  return (
+    <Container>
+      <WeeklyNotificationsSection />
+    </Container>
+  );
 }
 
 export default WeeklyNotifications;
