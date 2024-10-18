@@ -80,7 +80,7 @@ function SubscriptionsSection() {
             return (
               <div
                 key={sub.id}
-                className={`flex flex-col gap-[20px] rounded-[16px] bg-gradient-to-br ${sub.isSpecial ? "from-[#FFFFFF] to-primary" : "from-[#73737333] to-[#FFFFFF]"} px-[20px] py-[30px]`}
+                className={`flex flex-col gap-[20px] rounded-[16px] bg-gradient-to-br ${sub.isSpecial ? "from-[#FFFFFF] to-primary" : "bg-[#FFFFFF]"} px-[20px] py-[30px]`}
               >
                 <img src={icon} alt="icon" className="h-[64px] w-[64px]" />
 

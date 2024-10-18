@@ -8,8 +8,8 @@ function TransformationsSection() {
   return (
     <section className="bg-black py-[30px]">
       <Container>
-        <div className="relative flex min-h-[720px] text-[#fff]">
-          <div className="flex w-[35%] flex-col justify-center">
+        <div className="relative flex min-h-[720px] flex-col-reverse gap-[10px] text-[#fff] md:flex-row">
+          <div className="flex w-full flex-col justify-center md:w-[35%]">
             <h2 className="text-[32px] font-[700] leading-[40px] text-primary sm:text-[24px] sm:leading-[32px] lg:text-[48px] lg:leading-[24px]">
               التحولات
             </h2>
@@ -26,10 +26,11 @@ function TransformationsSection() {
               </Button>
             </Link>
           </div>
-          <div className="flex w-[65%] items-center gap-[20px]">
+
+          <div className="flex w-full items-center gap-[20px] md:w-[65%]">
             <figure className="relative">
               <img src={afterEx} alt="" className="rounded-md" />
-              <div className="absolute bottom-[100px] left-[50%] w-[199px] translate-x-[-50%]">
+              <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
                 <Button variant="tertiary" styles={"h-[56px]"}>
                   بعد
                 </Button>
@@ -38,7 +39,7 @@ function TransformationsSection() {
 
             <figure className="relative">
               <img src={beforeEx} alt="" className="rounded-md" />
-              <div className="absolute bottom-[100px] left-[50%] w-[199px] translate-x-[-50%]">
+              <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
                 <Button variant="tertiary" styles={"h-[56px]"}>
                   قبل
                 </Button>
