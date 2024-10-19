@@ -26,6 +26,9 @@ const WeightsDevelopment = lazy(
   () => import("../pages/notifications/WeightsDevelopment"),
 );
 
+const Exercise = lazy(() => import("../pages/exercise/Exercise"));
+const TodayExercise = lazy(() => import("../pages/exercise/TodayExercise"));
+
 function AppRoutes() {
   return (
     <main className="mt-[64px] min-h-[calc(100vh-64px)] bg-bg_color">
@@ -46,6 +49,12 @@ function AppRoutes() {
             />
             <Route path="measurements" element={<MeasurementsAndPictures />} />
             <Route path="weights" element={<WeightsDevelopment />} />
+          </Route>
+
+          <Route path="exercise" element={<Exercise />}>
+            <Route index element={<Navigate replace to="today" />} />
+            <Route path="today" element={<TodayExercise />} />
+            <Route path="weekly" element={<WeeklyNotifications />} />
           </Route>
         </Routes>
       </Suspense>

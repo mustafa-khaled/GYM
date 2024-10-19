@@ -11,19 +11,19 @@ const options = [
 
   {
     title: "تمرين اليوم الثاني",
-    id: 1,
+    id: 2,
     data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
   },
 
   {
     title: "تمرين اليوم الثالث",
-    id: 1,
+    id: 3,
     data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
   },
 
   {
     title: "تمرين اليوم الرابع",
-    id: 1,
+    id: 4,
     data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
   },
 ];

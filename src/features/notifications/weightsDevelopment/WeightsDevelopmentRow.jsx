@@ -6,8 +6,8 @@ function WeightsDevelopmentRow({ item }) {
       <Table.Row>
         <Table.Cell rowSpan={1}>التمرين</Table.Cell>
         <Table.Cell rowSpan={1}>العضله المستهدفه</Table.Cell>
-        <Table.Cell>{item.weight1}</Table.Cell>
-        <Table.Cell>{item.reps1}</Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>-</Table.Cell>
       </Table.Row>
     </>
   );
