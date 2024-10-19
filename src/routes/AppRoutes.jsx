@@ -28,6 +28,7 @@ const WeightsDevelopment = lazy(
 
 const Exercise = lazy(() => import("../pages/exercise/Exercise"));
 const TodayExercise = lazy(() => import("../pages/exercise/TodayExercise"));
+const ExerciseDetails = lazy(() => import("../pages/exercise/ExerciseDetails"));
 
 function AppRoutes() {
   return (
@@ -54,7 +55,7 @@ function AppRoutes() {
           <Route path="exercise" element={<Exercise />}>
             <Route index element={<Navigate replace to="today" />} />
             <Route path="today" element={<TodayExercise />} />
-            <Route path="weekly" element={<WeeklyNotifications />} />
+            <Route path="details" element={<ExerciseDetails />} />
           </Route>
         </Routes>
       </Suspense>
