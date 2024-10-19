@@ -38,7 +38,17 @@ function ExerciseInfo({ onCloseModal }) {
         })}
       </ul>
 
-      <div className="my-[20px]">Vidoe</div>
+      <div className="my-[20px] rounded-md">
+        <iframe
+          width="100%"
+          height="300"
+          src="https://www.youtube.com/embed/oHgZuV1drKc"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
       <Link to={"/exercise/details"}>
         <Button variant="tertiary">ابدا الان</Button>
       </Link>

@@ -1,13 +1,10 @@
 import Modal from "../../ui/Modal";
-import Button from "../../ui/Button";
 import ExerciseInfo from "./ExerciseInfo";
 
-function StartNow() {
+function StartNow({ children }) {
   return (
     <Modal>
-      <Modal.Open opens="StartNow">
-        <Button variant="tertiary">ابدا الان</Button>
-      </Modal.Open>
+      <Modal.Open opens="StartNow">{children}</Modal.Open>
 
       <Modal.Window name="StartNow">
         <ExerciseInfo />

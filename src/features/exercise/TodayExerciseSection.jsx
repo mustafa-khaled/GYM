@@ -1,6 +1,7 @@
 import image from "../../assets/exerciseEx.png";
 import imag2 from "../../assets/exe2.png";
 import StartNow from "./StartNow";
+import Button from "../../ui/Button";
 
 const exercise = [
   {
@@ -55,7 +56,9 @@ function TodayExerciseSection() {
           <img src={imag2} alt="" />
         </div>
       </div>
-      <StartNow />
+      <StartNow>
+        <Button variant="tertiary">ابدا الان</Button>
+      </StartNow>
     </div>
   );
 }
