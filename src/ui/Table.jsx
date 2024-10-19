@@ -28,10 +28,18 @@ const Row = ({ children }) => {
   );
 };
 
-const Cell = ({ children, isHeader = false, styles }) => {
+const Cell = ({
+  children,
+  isHeader = false,
+  styles,
+  colSpan = 1,
+  rowSpan = 1,
+}) => {
   const Tag = isHeader ? "th" : "td";
   return (
     <Tag
+      colSpan={colSpan}
+      rowSpan={rowSpan}
       scope={isHeader ? "col" : "row"}
       className={`border-l border-slate-500 p-[8px] ${styles}`}
     >
