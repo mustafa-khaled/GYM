@@ -13,11 +13,13 @@ function EditWeightKeyboard({ weight = 0, onCloseModal }) {
       setCurrentWeight((prevWeight) => prevWeight + 1);
       return;
     }
-    if (keyValue === "1") {
+    if (keyValue === "-" && currentWeight > 0) {
       setCurrentWeight((prevWeight) => prevWeight - 1);
       return;
     }
-    setCurrentWeight(keyValue);
+    if (typeof keyValue === "number") {
+      setCurrentWeight(keyValue);
+    }
   };
 
   return (
