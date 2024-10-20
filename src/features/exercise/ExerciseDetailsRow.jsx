@@ -2,6 +2,7 @@ import { FaCheck } from "react-icons/fa6";
 import { PiDotsThreeCircleVerticalLight } from "react-icons/pi";
 
 import Table from "../../ui/Table";
+import EditWeight from "./EditWeight";
 
 function ExerciseDetailsRow({ item }) {
   return (
@@ -16,9 +17,7 @@ function ExerciseDetailsRow({ item }) {
         </span>
       </Table.Cell>
       <Table.Cell>
-        <span className="flex w-full items-center justify-center bg-[#909090] p-[10px] text-[#000]">
-          --
-        </span>
+        <EditWeight weight={11} />
       </Table.Cell>
       <Table.Cell>
         <p className="flex w-full items-center gap-[5px] text-[#000]">
