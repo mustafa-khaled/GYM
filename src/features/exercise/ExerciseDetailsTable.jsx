@@ -8,7 +8,7 @@ import TableFooter from "./TableFooter";
 
 function ExerciseDetailsTable({ data }) {
   return (
-    <div className="bg-[#000] p-[10px]">
+    <div className="rounded-md bg-[#000] p-[10px]">
       <TableHead />
       <Table>
         <Table.Header>

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from "../ui/spinner/Spinner";
+import Diet from "../pages/Diet";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -57,6 +58,8 @@ function AppRoutes() {
             <Route path="today" element={<TodayExercise />} />
             <Route path="details" element={<ExerciseDetails />} />
           </Route>
+
+          <Route index path="/diet" element={<Diet />} />
         </Routes>
       </Suspense>
     </main>
