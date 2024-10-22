@@ -75,7 +75,7 @@ function FAQSection() {
               بعض الاسئله التي قد تخطر في بالك
             </p>
 
-            <Link to={"/"} className="text-black">
+            <Link to={"#"} className="text-black">
               <Button
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}

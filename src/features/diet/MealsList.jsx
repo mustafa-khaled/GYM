@@ -32,12 +32,6 @@ const fakeMeals = [
     name: "وجبه 4",
     calories: 11,
   },
-
-  {
-    id: 6,
-    name: "وجبه 4",
-    calories: 11,
-  },
 ];
 
 function MealsList() {
@@ -65,7 +59,7 @@ function MealsList() {
                 <Button>اضافه صنف</Button>
                 <div className="hidden w-[25%] md:block"></div>
                 <Button styles={"!bg-[#B0B0B0]"}>اسم الصنف</Button>
-                <Button styles={"!bg-[#B0B0B0]"}>الكميه والحده</Button>
+                <Button styles={"!bg-[#B0B0B0]"}>الكميه والوحده</Button>
               </div>
             </div>
           );

@@ -16,7 +16,7 @@ function MealsChart() {
                 "conic-gradient(#85FFC5 0 25%, transparent 30% 35%, #FFE8C6 35% 50%, transparent 60% 70%, #FFB445 80% 95%, transparent 95% 100%)",
             }}
           />
-          <div className="relative flex h-full w-full items-center justify-center rounded-full bg-bg_color">
+          <div className="relative flex h-full w-full items-center justify-center rounded-full bg-bg_color text-[35px] font-[700] text-primary">
             1500
           </div>
         </div>

@@ -24,7 +24,7 @@ function HeroSection() {
             احصل على الجسم المثالي، وزد ثقتك بنفسك، وحقق أهدافك مع خطط تدريبية
             مخصصة ودعم مستمر.
           </p>
-          <Link to={"/"} className="text-black">
+          <Link to={"/notifications"} className="text-black">
             <Button
               variant="tertiary"
               styles={"lg:w-[438px] w-full md:w-[400px] md:h-[72px] h-[50px]"}

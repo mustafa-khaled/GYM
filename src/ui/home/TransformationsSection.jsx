@@ -17,7 +17,7 @@ function TransformationsSection() {
               بعض النتائج لقبل وبعد التمرين
             </p>
 
-            <Link to={"/"} className="text-black">
+            <Link to={"/transformations"} className="text-black">
               <Button
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}

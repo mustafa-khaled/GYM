@@ -28,7 +28,7 @@ function DietSection() {
               خطط غذائية متوازنة لتحقق أهدافك الصحية وتزيد من طاقتك اليومية
             </p>
 
-            <Link to={"/"} className="text-black">
+            <Link to={"/diet"} className="text-black">
               <Button
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
