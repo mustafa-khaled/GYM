@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { useFormContext } from "react-hook-form";
+import { useGoals } from "../../queries/useGoals";
+import { useMedicalIssues } from "../../queries/useMedicalIssues";
 
 import Button from "../../ui/Button";
 import SelectBox from "../../ui/SelectBox";
 
 function Step1({ nextStep }) {
+  const { MedicalIssueLoading, medicalIssues } = useMedicalIssues();
+  const { goalsLoading, goals } = useGoals();
+
+  const isDisabled = MedicalIssueLoading || goalsLoading;
+
   const {
     register,
     handleSubmit,
@@ -27,7 +34,16 @@ function Step1({ nextStep }) {
       className="grid min-h-[70vh] grid-cols-1 gap-[20px] lg:grid-cols-2"
     >
       <SelectBox
-        options={["ذكر", "انثي"]}
+        options={[
+          {
+            value: "male",
+            title: "ذكر",
+          },
+          {
+            value: "female",
+            title: "انثي",
+          },
+        ]}
         label={"النوع"}
         name="gender"
         register={register}
@@ -35,7 +51,8 @@ function Step1({ nextStep }) {
         error={errors?.gender?.message}
       />
       <SelectBox
-        options={["خسارة وزن", "بناء عضلات", "تحسين اللياقة العامة"]}
+        disabled={isDisabled}
+        options={goals || []}
         label={"الأهداف الشخصية: (خسارة وزن، بناء عضلات، تحسين اللياقة العامة)"}
         name="goal"
         register={register}
@@ -45,7 +62,8 @@ function Step1({ nextStep }) {
 
       <div className="col-span-1 lg:col-span-2">
         <SelectBox
-          options={["لايوجد مرض", "لدي مرض"]}
+          disabled={isDisabled}
+          options={medicalIssues || []}
           label={
             "الحالات الطبية: (إذا كانت هناك أي أمراض أو مشاكل صحية يجب معرفتها)"
           }
@@ -77,7 +95,7 @@ function Step1({ nextStep }) {
       </div>
 
       <div className="col-span-1 lg:col-span-2">
-        <Button type="submit" variant="tertiary">
+        <Button type="submit" variant="tertiary" disabled={isDisabled}>
           التالي
         </Button>
       </div>

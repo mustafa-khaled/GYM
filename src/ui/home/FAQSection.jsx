@@ -1,67 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoPlus, GoDash } from "react-icons/go";
+import { useGlobal } from "../../queries/useGlobal";
 
 import Button from "../Button";
 import Container from "../Container";
-
-const questions = [
-  {
-    id: 1,
-    question: "ما هي ساعات العمل في الجيم؟",
-    answer:
-      "نحن نفتح أبوابنا يوميًا من الساعة 6 صباحًا حتى 10 مساءً، بما في ذلك عطلات نهاية الأسبوع.",
-  },
-  {
-    id: 2,
-    question: "هل يمكنني تجربة الجيم قبل الاشتراك؟",
-    answer:
-      "نعم، نقدم لك جلسة تجريبية مجانية للتعرف على مرافقنا وبرامجنا قبل الالتزام بالعضوية.",
-  },
-  {
-    id: 3,
-    question: "هل توجد برامج تدريب شخصية؟",
-    answer:
-      "نعم، لدينا فريق من المدربين الشخصيين المتخصصين الذين سيعملون معك لوضع برنامج تدريبي يناسب أهدافك ومستوى لياقتك.",
-  },
-  {
-    id: 4,
-    question: "هل هناك خيارات لعضويات قصيرة الأجل؟",
-    answer:
-      "نعم، نقدم عضويات شهرية وعضويات مرنة حسب احتياجاتك، بالإضافة إلى عضويات طويلة الأجل بأسعار مخفضة.",
-  },
-  {
-    id: 5,
-    question: "هل الجيم مناسب لجميع مستويات اللياقة؟",
-    answer:
-      "بالتأكيد! سواء كنت مبتدئًا أو محترفًا، لدينا برامج وخطط تدريب تناسب كل المستويات.",
-  },
-  {
-    id: 6,
-    question: "ما هي وسائل الدفع المتاحة؟",
-    answer:
-      "يمكنك الدفع باستخدام بطاقات الائتمان، بطاقات الخصم، أو التحويل البنكي. كما نوفر خيارات دفع إلكترونية.",
-  },
-  {
-    id: 7,
-    question: "هل يمكن إلغاء العضوية في أي وقت؟",
-    answer:
-      "نعم، يمكنك إلغاء العضوية في أي وقت، ولكن تأكد من مراجعة الشروط الخاصة بالإلغاء حسب نوع العضوية التي اخترتها.",
-  },
-  {
-    id: 8,
-    question: "هل هناك برامج غذائية مرفقة مع العضوية؟",
-    answer:
-      "نعم، نقدم برامج غذائية مخصصة بالتعاون مع خبراء التغذية لدينا لمساعدتك في تحقيق أهدافك الصحية.",
-  },
-];
+import Spinner from "../spinner/Spinner";
 
 function FAQSection() {
+  const { isLoading, fqs } = useGlobal();
   const [activeQuestion, setActiveQuestion] = useState(null);
 
   const toggleQuestion = (id) => {
     setActiveQuestion((prev) => (prev === id ? null : id));
   };
+
+  if (isLoading) return <Spinner />;
+  if (!fqs?.length) return;
 
   return (
     <section className="bg-black py-[30px]">
@@ -85,7 +40,7 @@ function FAQSection() {
             </Link>
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-[20px] md:w-[65%]">
-            {questions?.map((quiz) => {
+            {fqs?.map((quiz) => {
               const isActive = activeQuestion === quiz.id;
 
               return (

@@ -10,8 +10,8 @@ export function useSingUp() {
     mutationFn: signUpApi,
 
     onSuccess: (user) => {
-      navigate("/login", { replace: true });
       toast.success("تم انشاء حساب جديد بنجاح");
+      navigate("/login", { replace: true });
     },
 
     onError: (error) => {

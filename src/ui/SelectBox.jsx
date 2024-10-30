@@ -6,6 +6,7 @@ function SelectBox({
   validationRules,
   error,
   styles,
+  disabled,
 }) {
   return (
     <div className="w-full">
@@ -31,6 +32,7 @@ function SelectBox({
         </span>
 
         <select
+          disabled={disabled}
           className={`form-input ${styles} cursor-pointer appearance-none rounded-md font-[600] text-[#000]`}
           {...register(name, validationRules)}
           defaultValue=""
@@ -38,9 +40,9 @@ function SelectBox({
           <option value="" disabled>
             -- اختر --
           </option>
-          {options?.map((option) => (
-            <option key={option} value={option} className="text-[#000]">
-              {option}
+          {options?.map((option, index) => (
+            <option key={index} value={option.value} className="text-[#000]">
+              {option.title}
             </option>
           ))}
         </select>

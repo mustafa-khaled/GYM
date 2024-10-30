@@ -27,9 +27,10 @@ const MultiStepForm = () => {
       email: finalData?.email,
       password: finalData?.password,
       password_confirmation: finalData?.confirmPassword,
-      gender: finalData?.gender === "انثي" ? "female" : "male",
-      goals: finalData?.goal,
-      medical_issues: finalData?.medicalCondition,
+      gender: finalData?.gender,
+      goals: [+finalData?.goal],
+      medical_issues: [+finalData?.medicalCondition],
+      device_id: "x",
     });
   };
 
