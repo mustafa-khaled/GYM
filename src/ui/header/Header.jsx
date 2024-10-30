@@ -17,7 +17,10 @@ function Header() {
       <header className="lef-0 fixed top-0 z-50 flex h-[64px] w-full items-center bg-[#000000] text-[#fff]">
         <Container>
           <div className="flex w-full items-center justify-between gap-[10px]">
-            <NavLinks activeSidebar={activeSidebar} />
+            <NavLinks
+              activeSidebar={activeSidebar}
+              closeSidebar={closeSidebar}
+            />
 
             <div
               className="w-full cursor-pointer text-xl md:hidden"

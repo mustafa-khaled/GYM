@@ -31,7 +31,7 @@ const links = [
   },
 ];
 
-function NavLinks({ activeSidebar }) {
+function NavLinks({ activeSidebar, closeSidebar }) {
   return (
     <nav
       className={`fixed ${activeSidebar ? "right-0" : "right-[-400px]"} top-[64px] h-[calc(100vh-64px)] w-[300px] border border-slate-900 bg-[#000000] transition-all md:static md:h-auto md:w-[80%] md:border-none`}
@@ -42,6 +42,7 @@ function NavLinks({ activeSidebar }) {
             <li key={link.href}>
               <NavLink
                 to={link.href}
+                onClick={closeSidebar}
                 className={({ isActive }) =>
                   `text-[16px] font-[700] leading-[24px] transition-all hover:text-primary ${isActive ? "text-primary" : ""}`
                 }

@@ -17,7 +17,7 @@ export async function signUp(userData) {
   console.log(userData);
 
   try {
-    const response = await axios.post("", {
+    const response = await axios.post("api/register", {
       userData,
     });
     return response.data;

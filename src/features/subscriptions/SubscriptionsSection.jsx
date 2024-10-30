@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa6";
-import Container from "../Container";
-import Button from "../Button";
+import Container from "../../ui/Container";
+import Button from "../../ui/Button";
 import icon from "../../assets/subscriptios_icon.png";
 
 const subscriptionOptions = [

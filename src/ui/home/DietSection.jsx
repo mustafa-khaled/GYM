@@ -20,7 +20,7 @@ function DietSection() {
             <img src={diet2} alt="" className="h-[535px] w-[432px]" />
           </div>
 
-          <div className="absolute right-[50%] top-[50%] flex w-[90%] translate-x-[50%] flex-col bg-black p-[24px] md:right-[10%] md:w-[500px] md:translate-x-0 lg:h-[284px] lg:w-[646px]">
+          <div className="absolute right-[50%] top-[50%] flex w-[90%] translate-x-[50%] flex-col rounded-md bg-black p-[24px] md:right-[10%] md:w-[500px] md:translate-x-0 lg:h-[284px] lg:w-[646px]">
             <h2 className="text-[32px] font-[700] leading-[40px] text-primary sm:text-[24px] sm:leading-[32px] lg:text-[48px] lg:leading-[24px]">
               النظام الغذائي
             </h2>

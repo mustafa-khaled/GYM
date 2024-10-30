@@ -22,8 +22,15 @@ const MultiStepForm = () => {
   const submitForm = (data) => {
     const finalData = { ...formData, ...data };
 
-    signUp(finalData);
-    console.log("Final Form Data:", finalData);
+    signUp({
+      name: finalData?.name,
+      email: finalData?.email,
+      password: finalData?.password,
+      password_confirmation: finalData?.confirmPassword,
+      gender: finalData?.gender === "انثي" ? "female" : "male",
+      goals: finalData?.goal,
+      medical_issues: finalData?.medicalCondition,
+    });
   };
 
   return (
