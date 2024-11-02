@@ -9,8 +9,8 @@ export function useLogin() {
   const { mutate: login, isPending: isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
 
-    onSuccess: (user) => {
-      console.log("useLogin", user);
+    onSuccess: (data) => {
+      localStorage.setItem("GYM_user_token", data.data.user.token);
       toast.success("تم تسجيل الدخول بنجاح");
       navigate("/", { replace: true });
     },

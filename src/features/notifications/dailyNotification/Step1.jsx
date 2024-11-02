@@ -10,8 +10,6 @@ function Step1({ nextStep, isLoading }) {
     formState: { errors },
   } = useFormContext();
 
-  console.log(errors);
-
   const onSubmit = (data) => {
     if (!Object.keys(errors).length) {
       nextStep(data);

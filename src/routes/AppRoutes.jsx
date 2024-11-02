@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import Spinner from "../ui/spinner/Spinner";
 import Diet from "../pages/Diet";
 import Subscriptions from "../pages/Subscriptions";
+import ProtectedRoute from "../ui/ProtectedRoute";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -42,7 +43,14 @@ function AppRoutes() {
           <Route index path="/signUp" element={<SignUp />} />
           <Route index path="/login" element={<Login />} />
 
-          <Route path="notifications" element={<Notifications />}>
+          <Route
+            path="notifications"
+            element={
+              <ProtectedRoute>
+                <Notifications />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="daily" />} />
             <Route path="daily" element={<DailyNotification />} />
             <Route path="weekly" element={<WeeklyNotifications />} />
@@ -54,13 +62,28 @@ function AppRoutes() {
             <Route path="weights" element={<WeightsDevelopment />} />
           </Route>
 
-          <Route path="exercise" element={<Exercise />}>
+          <Route
+            path="exercise"
+            element={
+              <ProtectedRoute>
+                <Exercise />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="today" />} />
             <Route path="today" element={<TodayExercise />} />
             <Route path="details" element={<ExerciseDetails />} />
           </Route>
 
-          <Route index path="/diet" element={<Diet />} />
+          <Route
+            index
+            path="/diet"
+            element={
+              <ProtectedRoute>
+                <Diet />
+              </ProtectedRoute>
+            }
+          />
           <Route index path="/subscriptions" element={<Subscriptions />} />
         </Routes>
       </Suspense>

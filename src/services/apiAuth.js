@@ -15,8 +15,6 @@ export async function login({ email, password }) {
 }
 
 export async function signUp(userData) {
-  console.log(userData);
-
   try {
     const response = await axios.post("register", userData, {
       headers: {

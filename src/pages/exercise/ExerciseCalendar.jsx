@@ -1,50 +1,45 @@
+import { useEffect, useState } from "react";
 import Container from "../../ui/Container";
 
-const getWeekDates = (startDate) => {
-  const weekDates = [];
-  const date = new Date(startDate);
-
-  const today = new Date(date);
-
-  for (let i = 0; i < 14; i++) {
-    const newDate = new Date(today);
-    newDate.setDate(today.getDate() + i);
-
-    const dayNames = [
-      "الأحد",
-      "الإثنين",
-      "الثلاثاء",
-      "الأربعاء",
-      "الخميس",
-      "الجمعة",
-      "السبت",
-    ];
-    weekDates.push({
-      day: dayNames[newDate.getDay()],
-      date: newDate.getDate(),
-      isToday: newDate.toDateString() === today.toDateString(),
-    });
-  }
-
-  return weekDates;
-};
-
 function ExerciseCalendar() {
-  const today = new Date();
-  const weekDates = getWeekDates(today);
+  const [weekDays, setWeekDays] = useState([]);
+
+  const currentDayIndex = new Date().getDay();
+
+  useEffect(() => {
+    const getWeekDays = () => {
+      const days = [];
+      const currentDate = new Date();
+      const firstDayOfWeek = currentDate.getDate() - currentDate.getDay();
+
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(currentDate.setDate(firstDayOfWeek + i));
+        days.push({
+          day: day.toLocaleDateString("ar", { weekday: "long" }),
+          date: day.toLocaleDateString("ar", { day: "numeric" }),
+        });
+      }
+
+      return days;
+    };
+
+    setWeekDays(getWeekDays());
+  }, []);
 
   return (
     <Container>
       <div className="relative z-30 flex flex-wrap items-center gap-[20px]">
-        {weekDates.map((dayObj, index) => (
+        {weekDays.map((dayObj, index) => (
           <div
             key={index}
             className={`mt-[20px] rounded-md bg-[#000] p-[10px] text-center text-sm font-[600] text-[#fff] ${
-              dayObj.isToday ? "border border-primary text-primary" : ""
+              index === currentDayIndex
+                ? "border border-primary text-primary"
+                : ""
             }`}
           >
             <p
-              className={`${dayObj.isToday ? "text-primary" : "text-[#ccc]"} mb-[3px]`}
+              className={`${index === currentDayIndex ? "text-primary" : "text-[#ccc]"} mb-[3px]`}
             >
               {dayObj.day}
             </p>

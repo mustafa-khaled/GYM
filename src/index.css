@@ -13,7 +13,7 @@
 
 @layer components {
   .form-input {
-    @apply mt-[10px] h-[35px] w-full rounded-sm border border-[#fff] bg-[#fff] px-[10px] text-slate-600 outline-none placeholder:text-sm focus:border-primary md:h-[50px];
+    @apply mt-[10px] h-[35px] w-full rounded-md border border-[#fff] bg-[#fff] px-[10px] text-slate-600 outline-none placeholder:text-sm focus:border-primary md:h-[50px];
   }
 }
 

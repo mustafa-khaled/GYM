@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { EMAIL_REGEX } from "../../utils/constant";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../../utils/constant";
 import { isOnlySpaces } from "../../utils/helpers";
 import { Link } from "react-router-dom";
 import { useLogin } from "./useLogin";
@@ -18,7 +18,6 @@ function LoginForm() {
 
   const onSubmit = (data) => {
     login(data);
-    console.log(data);
   };
 
   return (
@@ -51,8 +50,9 @@ function LoginForm() {
           name="password"
           register={register}
           validationRules={{
-            validate: {
-              noOnlySpaces: (value) => !isOnlySpaces(value) || "حقل غير صالح",
+            pattern: {
+              value: PASSWORD_REGEX,
+              message: "أدخل كلمة مرور تتضمن 8 أحرف وحرفًا كبيرًا.",
             },
             required: "هذا الحقل مطلوب",
           }}

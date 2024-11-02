@@ -9,7 +9,7 @@ export function useSingUp() {
   const { mutate: signUp, isPending: isLoading } = useMutation({
     mutationFn: signUpApi,
 
-    onSuccess: (user) => {
+    onSuccess: (data) => {
       toast.success("تم انشاء حساب جديد بنجاح");
       navigate("/login", { replace: true });
     },

@@ -19,7 +19,6 @@ function DailyNotificationForm() {
 
   const submitForm = (data) => {
     const finalData = { ...formData, ...data };
-    console.log("Final Form Data:", finalData);
   };
 
   return (
