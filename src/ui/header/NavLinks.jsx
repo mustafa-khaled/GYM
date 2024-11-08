@@ -44,7 +44,7 @@ function NavLinks({ activeSidebar, closeSidebar }) {
                 to={link.href}
                 onClick={closeSidebar}
                 className={({ isActive }) =>
-                  `text-[16px] font-[700] leading-[24px] transition-all hover:text-primary ${isActive ? "text-primary" : ""}`
+                  `font-[700] leading-[24px] transition-all hover:text-primary md:text-[15px] lg:text-[16px] ${isActive ? "text-primary" : ""}`
                 }
               >
                 {link.title}

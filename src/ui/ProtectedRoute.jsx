@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProtectedRoute({ children }) {
-  const currenToken = localStorage.getItem("GYM_user_token");
+  const currenToken = localStorage.getItem("GYM_USER_TOKEN");
   const navigate = useNavigate();
 
   useEffect(() => {

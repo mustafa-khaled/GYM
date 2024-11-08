@@ -50,10 +50,10 @@ function LoginForm() {
           name="password"
           register={register}
           validationRules={{
-            pattern: {
-              value: PASSWORD_REGEX,
-              message: "أدخل كلمة مرور تتضمن 8 أحرف وحرفًا كبيرًا.",
-            },
+            // pattern: {
+            //   value: PASSWORD_REGEX,
+            //   message: "أدخل كلمة مرور تتضمن 8 أحرف وحرفًا كبيرًا.",
+            // },
             required: "هذا الحقل مطلوب",
           }}
           placeholder="كلمه المرور"
