@@ -12,9 +12,11 @@ function LoginButton() {
 
   if (currenToken) {
     return (
-      <Button styles={"!font-[700] w-[120px]"} onClick={logout}>
-        تسجيل الخروج
-      </Button>
+      <div className="w-[120px]">
+        <Button styles={"!font-[700] "} onClick={logout}>
+          تسجيل الخروج
+        </Button>
+      </div>
     );
   }
 

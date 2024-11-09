@@ -1,8 +1,15 @@
 import axios from "./axios";
 
 export async function getUserExercises() {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
   try {
-    const response = await axios.get("user-exercises");
+    const response = await axios.get("user-exercises", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     return response.data;
   } catch (error) {

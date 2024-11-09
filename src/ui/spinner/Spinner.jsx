@@ -1,8 +1,8 @@
 import styles from "./Spinner.module.css";
 
-function Spinner() {
+function Spinner({ className }) {
   return (
-    <div className="flex h-[100vh] items-center justify-center">
+    <div className={`flex h-[90vh] items-center justify-center ${className}`}>
       <div className={styles.loader}></div>
     </div>
   );

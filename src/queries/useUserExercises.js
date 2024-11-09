@@ -13,7 +13,7 @@ export function useUserExercises() {
 
   return {
     isLoading,
-    data,
+    exercises: data?.data?.exercises,
     error,
   };
 }
