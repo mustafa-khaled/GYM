@@ -6,6 +6,7 @@ function ExercisesList() {
   const { isLoading, exercises } = useUserExercises();
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
+  if (!exercises) return;
 
   return (
     <div className="w-full space-y-[20px]">
