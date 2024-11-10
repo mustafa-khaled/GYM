@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useUserExercisesByMuscle } from "../../queries/useUserExercisesByMuscle";
 import image from "../../assets/exerciseEx.png";
 import Button from "../../ui/Button";
+import Spinner from "../../ui/spinner/Spinner";
 
 const examples = [
   {
@@ -20,7 +22,12 @@ const examples = [
   },
 ];
 
-function ExerciseInfo({ onCloseModal }) {
+function ExerciseInfo({ onCloseModal, exerciseId }) {
+  const { isLoading, data } = useUserExercisesByMuscle(exerciseId);
+
+  console.log(data);
+  if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
+
   return (
     <div className="p-[10px]">
       <div className="flex items-center justify-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">

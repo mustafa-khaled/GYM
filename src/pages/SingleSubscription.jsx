@@ -2,24 +2,34 @@ import { useParams } from "react-router-dom";
 import { useSubscribeToPackage } from "../queries/useSubscribeToPackage";
 import { useGlobal } from "../queries/useGlobal";
 import { FaCheck } from "react-icons/fa6";
+import { useForm } from "react-hook-form";
 import Button from "../ui/Button";
 import Spinner from "../ui/spinner/Spinner";
+import SelectBox from "../ui/SelectBox";
 
 function SingleSubscription() {
   const { id } = useParams();
   const { isLoading, subscribeToPackage } = useSubscribeToPackage();
   const { isLoading: isPackagesLoading, packages } = useGlobal();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   if (isLoading) return <Spinner />;
 
   const packageToDisplay = packages?.find((pck) => pck?.id === parseInt(id));
 
-  function handleSubmit() {
-    subscribeToPackage({ packageId: id, paymentMethod: "cash" });
-  }
+  const onSubmit = (data) => {
+    const { paymentMethod } = data;
+
+    subscribeToPackage({ packageId: id, paymentMethod });
+  };
 
   return (
     <div className="flex h-[calc(100vh-64px)] items-center justify-center text-[#fff]">
-      <div className="flex w-[90%] flex-col gap-[10px] rounded-md bg-[#323232d6] p-[10px] md:w-[450px]">
+      <div className="flex w-[90%] flex-col gap-[20px] rounded-md bg-gradient-to-br from-primary to-gray-800 p-[10px] md:w-[500px]">
         <h3 className="text-center text-2xl font-bold">
           {packageToDisplay?.desc}
         </h3>
@@ -42,15 +52,26 @@ function SingleSubscription() {
           })}
         </ul>
 
-        <p className="text-lg">
-          وسيله الدفع: <span className="text-primary">كاش</span>
-        </p>
-        <Button
-          onClick={handleSubmit}
-          disabled={isLoading || isPackagesLoading}
-        >
-          تأكيد
-        </Button>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <SelectBox
+            disabled={isLoading || isPackagesLoading}
+            options={[{ value: "cash", title: "كاش" }]}
+            label={"وسيله الدفع:"}
+            name="paymentMethod"
+            register={register}
+            validationRules={{ required: "هذا الحقل مطلوب" }}
+            error={errors?.paymentMethod?.message}
+          />
+
+          <Button
+            // onClick={handleSubmit}
+            type="submit"
+            disabled={isLoading || isPackagesLoading}
+            styles="mt-[20px]"
+          >
+            تأكيد
+          </Button>
+        </form>
       </div>
     </div>
   );

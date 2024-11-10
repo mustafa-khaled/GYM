@@ -10,7 +10,6 @@ import SelectBox from "../../ui/SelectBox";
 function Step1({ nextStep }) {
   const { MedicalIssueLoading, medicalIssues } = useMedicalIssues();
   const { goalsLoading, goals } = useGoals();
-
   const isDisabled = MedicalIssueLoading || goalsLoading;
 
   const {

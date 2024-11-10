@@ -18,8 +18,15 @@ export async function getUserExercises() {
 }
 
 export async function getUserExerciseByMuscle(id) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
   try {
-    const response = await axios.get(`user-exercises-by-muscle/${id}`);
+    const response = await axios.get(`user-exercises-by-muscle/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     return response.data;
   } catch (error) {
