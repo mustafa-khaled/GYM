@@ -5,12 +5,13 @@ import Container from "../../ui/Container";
 import Spinner from "../../ui/spinner/Spinner";
 import Button from "../../ui/Button";
 import icon from "../../assets/subscriptios_icon.png";
+import Empty from "../../ui/Empty";
 
 function SubscriptionsSection() {
   const { isLoading, packages } = useGlobal();
 
   if (isLoading) return <Spinner />;
-  if (!packages?.length) return;
+  if (!packages?.length) return <Empty message={"فشل في عرض البيانات."} />;
 
   return (
     <section className="bg-black py-[60px]">
@@ -71,7 +72,7 @@ function SubscriptionsSection() {
                   })}
                 </ul>
 
-                <Link to={"/"} className="mt-auto">
+                <Link to={`/subscriptions/${sub.id}`} className="mt-auto">
                   <Button variant="tertiary" styles={"!bg-black text-white"}>
                     المزيد
                   </Button>

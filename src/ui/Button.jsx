@@ -6,7 +6,8 @@ function Button({
   styles,
   disabled,
 }) {
-  const baseStyles = "h-[36px] w-full rounded-[4px] font-medium transition-all";
+  const baseStyles =
+    "h-[36px] w-full rounded-[4px] font-medium transition-all font-bold";
 
   const variantStyles = {
     primary: "bg-primary text-black hover:bg-[#e35935] disabled:bg-[#90280d]",

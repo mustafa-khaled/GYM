@@ -1,7 +1,9 @@
 function Empty({ message }) {
   return (
-    <div className="mx-auto flex min-h-[100px] w-[90%] items-center justify-center rounded-md bg-black p-[10px] text-xl text-white shadow-lg">
-      {message}
+    <div className="flex h-[calc(100vh-64px)] items-center justify-center text-[#fff]">
+      <div className="flex w-[90%] flex-col gap-[10px] rounded-md bg-[#323232d6] p-[10px] md:w-[450px]">
+        {message}
+      </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Spinner from "../ui/spinner/Spinner";
 import Diet from "../pages/Diet";
 import Subscriptions from "../pages/Subscriptions";
 import ProtectedRoute from "../ui/ProtectedRoute";
+import SingleSubscription from "../pages/SingleSubscription";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -85,6 +86,11 @@ function AppRoutes() {
             }
           />
           <Route index path="/subscriptions" element={<Subscriptions />} />
+          <Route
+            index
+            path="/subscriptions/:id"
+            element={<SingleSubscription />}
+          />
         </Routes>
       </Suspense>
     </main>
