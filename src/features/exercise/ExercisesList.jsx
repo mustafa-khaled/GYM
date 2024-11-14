@@ -2,15 +2,20 @@ import { useUserExercises } from "../../queries/useUserExercises";
 import image from "../../assets/exerciseEx.png";
 import Spinner from "../../ui/spinner/Spinner";
 import ShowExercise from "./ShowExercise";
+import { useSearchParams } from "react-router-dom";
 
 function ExercisesList() {
-  const { isLoading, exercises } = useUserExercises();
+  const [searchParams] = useSearchParams();
+  const selectedDate = searchParams.get("date");
+  const { isLoading, exercises } = useUserExercises(selectedDate);
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
   if (!exercises) return;
 
+  console.log(exercises);
+
   return (
-    <div className="w-full space-y-[20px]">
+    <div className="w-full space-y-[20px] self-start">
       {exercises?.map((ex, index) => {
         return (
           <ShowExercise key={ex.id} exerciseId={ex.id}>
@@ -22,7 +27,7 @@ function ExercisesList() {
                 <span className="flex h-[20px] w-[20px] items-center justify-center rounded-full bg-[#fff] text-sm text-[#000]">
                   {index + 1}
                 </span>
-                {ex.name}- {ex.repeat}
+                {ex.name}- {ex.r_p_e}
               </p>
               <img src={image} alt="" />
             </div>

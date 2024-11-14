@@ -23,15 +23,15 @@ const examples = [
 ];
 
 function ExerciseInfo({ onCloseModal, exerciseId }) {
-  const { isLoading, data } = useUserExercisesByMuscle(exerciseId);
+  const { exerciseDetails, isLoading } = useUserExercisesByMuscle(exerciseId);
 
-  console.log(data);
+  console.log("exerciseDetails", exerciseDetails);
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
 
   return (
     <div className="p-[10px]">
       <div className="flex items-center justify-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">
-        <h1>اسم التمرينه</h1>
+        <h1>تعلميات التمرين</h1>
         <img src={image} alt="" />
       </div>
 
@@ -56,7 +56,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
           allowFullScreen
         ></iframe>
       </div>
-      <Link to={"/exercise/details"}>
+      <Link to={"/exercise/details"} onClick={onCloseModal}>
         <Button variant="tertiary">ابدا الان</Button>
       </Link>
     </div>

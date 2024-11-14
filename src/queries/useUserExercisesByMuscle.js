@@ -14,7 +14,7 @@ export function useUserExercisesByMuscle(exerciseId) {
 
   return {
     isLoading,
-    data,
+    exerciseDetails: data?.data?.exercise,
     error,
   };
 }

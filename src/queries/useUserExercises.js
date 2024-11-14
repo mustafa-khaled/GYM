@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserExercises } from "../services/exercises";
 
-export function useUserExercises() {
+export function useUserExercises(selectedDate) {
   const {
     isPending: isLoading,
     data,
     error,
   } = useQuery({
-    queryKey: ["userExercises"],
-    queryFn: getUserExercises,
+    queryKey: ["userExercises", selectedDate],
+    queryFn: () => getUserExercises(selectedDate),
   });
 
   return {

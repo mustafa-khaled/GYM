@@ -1,14 +1,13 @@
 import { FaCheck } from "react-icons/fa6";
-import { PiDotsThreeCircleVerticalLight } from "react-icons/pi";
-
-import Table from "../../ui/Table";
+import ExerciseActions from "./ExerciseActions";
 import EditWeight from "./EditWeight";
+import Table from "../../ui/Table";
 
 function ExerciseDetailsRow({ item }) {
   return (
     <Table.Row key={item?.id}>
       <Table.Cell>
-        <PiDotsThreeCircleVerticalLight className="text-2xl text-primary" />
+        <ExerciseActions exercise={item} />
       </Table.Cell>
       <Table.Cell>-</Table.Cell>
       <Table.Cell>
