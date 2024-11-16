@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { userQuestions } from "../services/userQuestionsApi";
 import toast from "react-hot-toast";
 
-export function useUserQuestions() {
+export function useUserDailyQuestions() {
   const navigate = useNavigate();
 
   const {
-    mutate: sendUserQuestions,
+    mutate: userDailyQuestions,
     isPending: isLoading,
     error,
   } = useMutation({
@@ -21,5 +21,5 @@ export function useUserQuestions() {
     },
   });
 
-  return { isLoading, sendUserQuestions, error };
+  return { isLoading, userDailyQuestions, error };
 }
