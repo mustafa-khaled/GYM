@@ -3,8 +3,35 @@ import Button from "../Button";
 import Container from "../Container";
 import afterEx from "../../assets/after_ex.png";
 import beforeEx from "../../assets/before_ex.png";
+import TransformationList from "./TransformationList";
+
+const items = [
+  {
+    id: 1,
+    name: "Item 1",
+    img1: beforeEx,
+    img2: afterEx,
+  },
+  {
+    id: 2,
+    img1: beforeEx,
+    img2: afterEx,
+  },
+  {
+    id: 3,
+    img1: beforeEx,
+    img2: afterEx,
+  },
+  {
+    id: 4,
+    img1: beforeEx,
+    img2: afterEx,
+  },
+];
 
 function TransformationsSection() {
+  const lastTransformation = items[items?.length - 1];
+
   return (
     <section className="bg-black py-[30px]">
       <Container>
@@ -17,36 +44,49 @@ function TransformationsSection() {
               بعض النتائج لقبل وبعد التمرين
             </p>
 
-            <Link to={"/transformations"} className="text-black">
+            <Link to={"/subscriptions"} className="text-black">
               <Button
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
               >
-                المزيد
+                انضم الينا
               </Button>
             </Link>
           </div>
 
           <div className="flex w-full items-center gap-[20px] md:w-[65%]">
             <figure className="relative">
-              <img src={afterEx} alt="" className="rounded-md" />
+              <img
+                src={lastTransformation.img2}
+                alt=""
+                className="rounded-md"
+              />
               <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
-                <Button variant="tertiary" styles={"h-[56px]"}>
-                  بعد
-                </Button>
+                <Link to={"/contactUs"}>
+                  <Button variant="tertiary" styles={"h-[56px]"}>
+                    بعد
+                  </Button>
+                </Link>
               </div>
             </figure>
 
             <figure className="relative">
-              <img src={beforeEx} alt="" className="rounded-md" />
+              <img
+                src={lastTransformation.img1}
+                alt=""
+                className="rounded-md"
+              />
               <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
-                <Button variant="tertiary" styles={"h-[56px]"}>
-                  قبل
-                </Button>
+                <Link to={"/contactUs"}>
+                  <Button variant="tertiary" styles={"h-[56px]"}>
+                    قبل
+                  </Button>
+                </Link>
               </div>
             </figure>
           </div>
         </div>
+        <TransformationList items={items} />
       </Container>
     </section>
   );
