@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Button from "../../ui/Button";
 import GridContainer from "../../ui/GridContainer";
 import Input from "../../ui/Input";
+import { NUMBER_INPUT_REGEX } from "../../utils/constant";
 
 const initialState = {
   repeat: "",
@@ -86,6 +87,11 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
               noOnlySpaces: (value) =>
                 !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
             },
+
+            pattern: {
+              value: NUMBER_INPUT_REGEX,
+              message: "هذا الحقل يجب أن يحتوي علي أرقام فقط",
+            },
           }}
         />
 
@@ -102,6 +108,11 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
               noOnlySpaces: (value) =>
                 !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
             },
+
+            pattern: {
+              value: NUMBER_INPUT_REGEX,
+              message: "هذا الحقل يجب أن يحتوي علي أرقام فقط",
+            },
           }}
         />
         <Input
@@ -117,6 +128,11 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
               noOnlySpaces: (value) =>
                 !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
             },
+
+            pattern: {
+              value: NUMBER_INPUT_REGEX,
+              message: "هذا الحقل يجب أن يحتوي علي أرقام فقط",
+            },
           }}
         />
 
@@ -128,8 +144,6 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
             error={errors?.note?.message}
             register={register}
             validationRules={{
-              required: "هذا الحقل مطلوب",
-
               validate: {
                 noOnlySpaces: (value) =>
                   !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
