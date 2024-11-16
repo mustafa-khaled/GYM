@@ -73,7 +73,7 @@ function AppRoutes() {
           >
             <Route index element={<Navigate replace to="today" />} />
             <Route path="today" element={<TodayExercise />} />
-            <Route path="details" element={<ExerciseDetails />} />
+            <Route path="details/:exerciseId" element={<ExerciseDetails />} />
           </Route>
 
           <Route

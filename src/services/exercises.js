@@ -35,11 +35,11 @@ export async function getUserExerciseByMuscle(id) {
 }
 /******************************************************************************/
 /* ADD NEW ROUND */
-export async function addRound(args) {
+export async function addRound({ exerciseId, data }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.post(`add-round`, args, {
+    const response = await axios.post(`add-round/${exerciseId}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
@@ -52,11 +52,29 @@ export async function addRound(args) {
 }
 /******************************************************************************/
 /* EDIT EXIST ROUND */
-export async function editExistRound(args) {
+export async function editExistRound({ roundId, data }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.post(`update-round`, args, {
+    const response = await axios.post(`update-round/${roundId}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+/******************************************************************************/
+/* COMPLETE ROUND */
+export async function completeRound(roundId) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  console.log(roundId, "roundId");
+  try {
+    const response = await axios.post(`complete-round/${roundId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
@@ -73,7 +91,7 @@ export async function deleteCertainRound(id) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.get(`delete-round/${id}`, {
+    const response = await axios.delete(`delete-round/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",

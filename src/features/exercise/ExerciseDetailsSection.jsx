@@ -15,7 +15,7 @@ const data = [
   },
 ];
 
-function ExerciseDetailsSection() {
+function ExerciseDetailsSection({ exerciseDetails }) {
   return (
     <div>
       <div className="my-[20px] flex items-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">
@@ -23,7 +23,7 @@ function ExerciseDetailsSection() {
         <img src={image} alt="" />
       </div>
 
-      <ExerciseDetailsTable data={data} />
+      <ExerciseDetailsTable data={exerciseDetails} />
     </div>
   );
 }

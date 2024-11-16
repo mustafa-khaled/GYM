@@ -9,7 +9,7 @@ import TableFooter from "./TableFooter";
 function ExerciseDetailsTable({ data }) {
   return (
     <div className="rounded-md bg-[#000] p-[10px]">
-      <TableHead />
+      <TableHead data={data} />
       <Table>
         <Table.Header>
           <Table.Cell isHeader>
@@ -26,7 +26,7 @@ function ExerciseDetailsTable({ data }) {
           </Table.Cell>
         </Table.Header>
         <Table.Body
-          data={data}
+          data={data?.rounds}
           render={(item) => <ExerciseDetailsRow item={item} key={item?.id} />}
         />
       </Table>

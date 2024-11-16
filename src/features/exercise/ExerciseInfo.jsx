@@ -56,7 +56,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
           allowFullScreen
         ></iframe>
       </div>
-      <Link to={"/exercise/details"} onClick={onCloseModal}>
+      <Link to={`/exercise/details/${exerciseId}`} onClick={onCloseModal}>
         <Button variant="tertiary">ابدا الان</Button>
       </Link>
     </div>

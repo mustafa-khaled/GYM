@@ -10,7 +10,6 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
 
     onSuccess: (data) => {
-      console.log(data);
       localStorage.setItem("GYM_USER_TOKEN", data.data.user.token);
       toast.success("تم تسجيل الدخول بنجاح");
       navigate("/", { replace: true });

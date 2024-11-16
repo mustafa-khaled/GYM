@@ -1,25 +1,19 @@
-import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { PiNotepadBold } from "react-icons/pi";
 
-import StartNow from "./StartNow";
+import VideoInstructionModal from "./VideoInstructionModal";
 
 const twoBtnStyles =
   "flex items-center w-full gap-[10px] bg-[#FFFFFF] text-[#000] p-[10px] font-[600] rounded-md cursor-pointer";
 
-function TableHead() {
+function TableHead({ data }) {
   return (
     <div className="mb-[10px] flex flex-wrap items-center justify-between gap-[10px] lg:flex-nowrap">
       <h2 className="w-full text-[20px] md:text-[32px] lg:w-[50%]">
-        اسم التمرينه x 2
+        {`${data?.name} x ${data?.r_p_e}`}
       </h2>
 
       <div className="flex w-full flex-col items-center gap-[10px] sm:flex-row">
-        <StartNow>
-          <span className={`${twoBtnStyles} bg-primary`}>
-            التعليمات - التزضيح
-            <MdOutlineSlowMotionVideo />
-          </span>
-        </StartNow>
+        <VideoInstructionModal exercise={data} />
 
         <span className={`${twoBtnStyles}`}>
           <PiNotepadBold />

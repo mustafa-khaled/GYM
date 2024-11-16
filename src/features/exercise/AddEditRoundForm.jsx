@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import Button from "../../ui/Button";
-import GridContainer from "../../ui/GridContainer";
-import Input from "../../ui/Input";
 import { isOnlySpaces } from "../../utils/helpers";
 import { useAddRound } from "../../queries/useAddRound";
 import { useEditRound } from "../../queries/useEditRound";
+import { useParams } from "react-router-dom";
+import Button from "../../ui/Button";
+import GridContainer from "../../ui/GridContainer";
+import Input from "../../ui/Input";
 
 const initialState = {
   repeat: "",
@@ -16,6 +16,7 @@ const initialState = {
 export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
   const isEditingSession = Boolean(roundToEdit);
 
+  const { exerciseId } = useParams();
   const { addRound, isAddingRound } = useAddRound();
   const { editRound, isEditingRound } = useEditRound();
 
@@ -40,27 +41,25 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
 
   function onSubmit(data) {
     if (isEditingSession) {
-      editRound(data, {
-        onSuccess: () => {
-          toast.success("تم تعديل الجولة بنجاح");
-          onCloseModal?.();
-          reset();
+      editRound(
+        { roundId: roundToEdit.id, data },
+        {
+          onSuccess: () => {
+            onCloseModal?.();
+            reset();
+          },
         },
-        onError: () => {
-          toast.error("حدث خطأ أثناء تعديل الجولة");
-        },
-      });
+      );
     } else {
-      addRound(data, {
-        onSuccess: () => {
-          toast.success("تم إضافة الجولة بنجاح");
-          onCloseModal?.();
-          reset();
+      addRound(
+        { exerciseId, data },
+        {
+          onSuccess: () => {
+            onCloseModal?.();
+            reset();
+          },
         },
-        onError: () => {
-          toast.error("حدث خطأ أثناء إضافة الجولة");
-        },
-      });
+      );
     }
   }
 
