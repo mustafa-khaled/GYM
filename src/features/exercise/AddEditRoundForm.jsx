@@ -3,10 +3,10 @@ import { isOnlySpaces } from "../../utils/helpers";
 import { useAddRound } from "../../queries/useAddRound";
 import { useEditRound } from "../../queries/useEditRound";
 import { useParams } from "react-router-dom";
+import { NUMBER_INPUT_REGEX } from "../../utils/constant";
 import Button from "../../ui/Button";
 import GridContainer from "../../ui/GridContainer";
 import Input from "../../ui/Input";
-import { NUMBER_INPUT_REGEX } from "../../utils/constant";
 
 const initialState = {
   repeat: "",
@@ -75,6 +75,7 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
 
       <GridContainer>
         <Input
+          label="عدد التكرار"
           name="repeat"
           placeholder="عدد التكرار"
           disabled={isWorking}
@@ -96,6 +97,7 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
         />
 
         <Input
+          label="الوزن"
           name="weight"
           placeholder="الوزن"
           disabled={isWorking}
@@ -116,6 +118,7 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
           }}
         />
         <Input
+          label="المجموعة"
           name="set"
           placeholder="المجموعة"
           disabled={isWorking}
@@ -138,6 +141,7 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
 
         {isEditingSession && (
           <Input
+            label="ملاحظة"
             name="note"
             placeholder="ملاحظة"
             disabled={isWorking}
