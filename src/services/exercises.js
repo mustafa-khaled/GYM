@@ -72,14 +72,18 @@ export async function editExistRound({ roundId, data }) {
 export async function completeRound(roundId) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
-  console.log(roundId, "roundId");
   try {
-    const response = await axios.post(`complete-round/${roundId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
+    const response = await axios.post(
+      `complete-round/${roundId}`,
+      null, // No request body
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
       },
-    });
+    );
+
     return response.data;
   } catch (error) {
     throw error;
@@ -97,6 +101,27 @@ export async function deleteCertainRound(id) {
         "Content-Type": "multipart/form-data",
       },
     });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function completeExercise(exerciseId) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  try {
+    const response = await axios.post(
+      `complete-exercise/${exerciseId}`,
+      null, // No request body
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      },
+    );
+
     return response.data;
   } catch (error) {
     throw error;

@@ -49,11 +49,7 @@ function ExerciseDetailsRow({ item }) {
           onClick={handleChangeRoundDone}
           className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-bg_color p-[8px] text-primary"
         >
-          {item?.is_done === 1 ? (
-            <FaCheck className="text-xl" />
-          ) : (
-            <span>---</span>
-          )}
+          {item?.is_done ? <FaCheck className="text-xl" /> : <span>---</span>}
         </div>
       </Table.Cell>
     </Table.Row>

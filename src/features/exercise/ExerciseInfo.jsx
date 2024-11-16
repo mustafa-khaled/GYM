@@ -4,28 +4,9 @@ import image from "../../assets/exerciseEx.png";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/spinner/Spinner";
 
-const examples = [
-  {
-    title: "الاول",
-  },
-
-  {
-    title: "الثاني",
-  },
-
-  {
-    title: "الثالث",
-  },
-
-  {
-    title: "الرابع",
-  },
-];
-
 function ExerciseInfo({ onCloseModal, exerciseId }) {
   const { exerciseDetails, isLoading } = useUserExercisesByMuscle(exerciseId);
 
-  console.log("exerciseDetails", exerciseDetails);
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
 
   return (
@@ -35,15 +16,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
         <img src={image} alt="" />
       </div>
 
-      <ul className="list-disc space-y-[10px]">
-        {examples?.map((ex) => {
-          return (
-            <li key={ex.title} className="md:text-[20px]">
-              {ex.title}
-            </li>
-          );
-        })}
-      </ul>
+      <p className="my-[10px] text-center">{exerciseDetails.desc}</p>
 
       <div className="my-[20px] rounded-md">
         <iframe

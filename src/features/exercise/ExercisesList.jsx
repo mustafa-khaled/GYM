@@ -12,8 +12,6 @@ function ExercisesList() {
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
   if (!exercises) return;
 
-  console.log(exercises);
-
   return (
     <div className="w-full space-y-[20px] self-start">
       {exercises?.map((ex, index) => {

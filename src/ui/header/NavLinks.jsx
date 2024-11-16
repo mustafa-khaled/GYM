@@ -25,10 +25,6 @@ const links = [
     href: "/contactUs",
     title: "تواصل معنا",
   },
-  {
-    href: "/transformations",
-    title: "التحولات",
-  },
 ];
 
 function NavLinks({ activeSidebar, closeSidebar }) {

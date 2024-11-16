@@ -30,7 +30,7 @@ function SubscriptionsSection() {
             return (
               <div
                 key={sub.id}
-                className={`flex flex-col gap-[20px] rounded-[16px] bg-gradient-to-br ${sub.isSpecial ? "from-[#FFFFFF] to-primary" : "bg-[#FFFFFF]"} px-[20px] py-[30px]`}
+                className={`flex flex-col gap-[20px] rounded-[16px] bg-gradient-to-br ${sub.is_special ? "from-[#FFFFFF] to-primary" : "bg-[#FFFFFF]"} px-[20px] py-[30px]`}
               >
                 <img src={icon} alt="icon" className="h-[64px] w-[64px]" />
 
@@ -50,7 +50,7 @@ function SubscriptionsSection() {
                   )}
                 </p>
                 <p
-                  className={`${sub?.isSpecial ? "bg-gradient-to-br from-[#fff] to-[#fec0ab]" : "bg-transparent"} flex h-[66px] items-center rounded-[8px] border border-slate-300 p-[10px] text-[18px] font-[600] leading-[34px]`}
+                  className={`${sub?.is_special ? "bg-gradient-to-br from-[#fff] to-[#fec0ab]" : "bg-transparent"} flex h-[66px] items-center rounded-[8px] border border-slate-300 p-[10px] text-[18px] font-[600] leading-[34px]`}
                 >
                   {sub.duration}
                 </p>
