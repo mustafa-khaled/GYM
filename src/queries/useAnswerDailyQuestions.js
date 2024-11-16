@@ -8,7 +8,7 @@ export function useAnswerDailyQuestions() {
 
   const {
     mutate: sendDailyAnswers,
-    isPending: isLoading,
+    isPending: isSendingDailyAnswersLoading,
     error,
   } = useMutation({
     mutationFn: answerQuestions,
@@ -21,5 +21,5 @@ export function useAnswerDailyQuestions() {
     },
   });
 
-  return { isLoading, sendDailyAnswers, error };
+  return { isSendingDailyAnswersLoading, sendDailyAnswers, error };
 }

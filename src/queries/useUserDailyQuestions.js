@@ -1,25 +1,20 @@
-import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { userQuestions } from "../services/userQuestionsApi";
-import toast from "react-hot-toast";
 
-export function useUserDailyQuestions() {
-  const navigate = useNavigate();
-
+export default function useUserDailyQuestions(date) {
+  const isEnabled = !!date;
   const {
-    mutate: userDailyQuestions,
-    isPending: isLoading,
+    data,
+    isPending: isQuestionsLoading,
     error,
-  } = useMutation({
-    mutationFn: userQuestions,
-    onSuccess: () => {
-      toast.success("تم ارسال الاجابات بنجاح");
-      navigate("/", { replace: true });
-    },
-    onError: () => {
-      toast.error("فشل في ارسال الاجابات");
-    },
+  } = useQuery({
+    queryKey: ["dailyQuestions", date],
+    queryFn: () => userQuestions({ date }),
+    enabled: isEnabled,
   });
-
-  return { isLoading, userDailyQuestions, error };
+  return {
+    userDailyQuestions: data?.data?.questions,
+    isQuestionsLoading: isEnabled ? isQuestionsLoading : false,
+    error,
+  };
 }

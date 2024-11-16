@@ -3,7 +3,7 @@ import DailyNotificationForm from "./DailyNotificationForm";
 
 function UserDailyProgress() {
   return (
-    <div className="rounded-sm bg-[#000] p-[20px]">
+    <div className="h-[57vh] overflow-y-scroll rounded-sm bg-[#000] p-[20px]">
       <div className="mb-[30px] text-center">
         <h1 className="text-[24px] font-[700] leading-[24px]">
           صفحه المتدرب ومتابعه التطور
