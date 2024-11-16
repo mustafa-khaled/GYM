@@ -18,7 +18,7 @@ function ExerciseDetailsRow({ item }) {
       <Table.Cell>
         <ExerciseActions exercise={item} />
       </Table.Cell>
-      <Table.Cell>{item?.repeat}</Table.Cell>
+      <Table.Cell>{item?.set}</Table.Cell>
       <Table.Cell>
         <span className="flex w-full items-center justify-center bg-[#909090] p-[10px] text-[#000]">
           --
