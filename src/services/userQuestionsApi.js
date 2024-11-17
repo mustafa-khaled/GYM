@@ -17,19 +17,20 @@ export async function userQuestions(date) {
   }
 }
 
-export async function answerQuestions(data ) {
+export async function answerQuestions({ date, answers }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
-  try {
-    const response = await axios.post("answer-questions", data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-    });
+  console.log("data", answers);
+  // try {
+  //   const response = await axios.post("answer-questions", data, {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   });
 
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  //   return response.data;
+  // } catch (error) {
+  //   throw error;
+  // }
 }
