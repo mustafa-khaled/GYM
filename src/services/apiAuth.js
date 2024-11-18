@@ -5,7 +5,7 @@ export async function login({ email, password }) {
     const response = await axios.post("login", {
       email,
       password,
-      device_id: "x",
+      device_id: null,
     });
 
     return response.data;
@@ -28,9 +28,22 @@ export async function signUp(userData) {
   }
 }
 
-export async function logout(id) {
+export async function storeToken(deviceId) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
   try {
-    const response = await axios.post(``);
+    const response = await axios.post(
+      "store-token",
+      {
+        device_id: deviceId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
     return response.data;
   } catch (error) {
     throw error;

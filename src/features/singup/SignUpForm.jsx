@@ -30,7 +30,7 @@ const MultiStepForm = () => {
       gender: finalData?.gender,
       goals: [+finalData?.goal],
       medical_issues: [+finalData?.medicalCondition],
-      device_id: "x",
+      device_id: null,
     });
   };
 

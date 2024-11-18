@@ -74,7 +74,7 @@ function DailyNotificationForm() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-[20px] lg:grid-cols-2"
+        className="grid grid-cols-1 items-center gap-[20px] lg:grid-cols-2"
       >
         {userDailyQuestions?.map((userQuestion) => {
           const fieldName = `answers[${userQuestion?.id}]`;
@@ -84,7 +84,7 @@ function DailyNotificationForm() {
           }));
           return (
             <Fragment key={userQuestion?.id}>
-              {userQuestion?.question?.type === "text" && (
+              {["text", "number"].includes(userQuestion?.question?.type) && (
                 <Input
                   label={userQuestion?.question?.question}
                   name={fieldName}

@@ -5,6 +5,7 @@ import Diet from "../pages/Diet";
 import Subscriptions from "../pages/Subscriptions";
 import ProtectedRoute from "../ui/ProtectedRoute";
 import SingleSubscription from "../pages/SingleSubscription";
+import NotificationPopup from "../features/notifications/NotificationPopup";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -37,6 +38,7 @@ const ExerciseDetails = lazy(() => import("../pages/exercise/ExerciseDetails"));
 function AppRoutes() {
   return (
     <main className="mt-[64px] min-h-[calc(100vh-64px)] bg-bg_color">
+      <NotificationPopup />
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route index path="*" element={<NotFound />} />
