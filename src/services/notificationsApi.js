@@ -19,7 +19,7 @@ export async function getUserNotificationsMeasurements(weekNumber) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.get(`measurements/1`, {
+    const response = await axios.get(`measurements/${weekNumber}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
