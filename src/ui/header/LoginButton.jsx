@@ -13,7 +13,7 @@ function LoginButton() {
   if (currenToken) {
     return (
       <div className="w-[120px]">
-        <Button styles={"!font-[700] "} onClick={logout}>
+        <Button AriaLabel="logout" styles={"!font-[700] "} onClick={logout}>
           تسجيل الخروج
         </Button>
       </div>
@@ -22,7 +22,9 @@ function LoginButton() {
 
   return (
     <Link to={"/login"} className="w-[100px]">
-      <Button styles={"!font-[700]"}>تسجيل</Button>
+      <Button AriaLabel="login" styles={"!font-[700]"}>
+        تسجيل
+      </Button>
     </Link>
   );
 }

@@ -27,7 +27,7 @@ function ExercisesList() {
                 </span>
                 {ex.name}- {ex.r_p_e}
               </p>
-              <img src={image} alt="" />
+              <img src={image} alt="single exercise image" />
             </div>
           </ShowExercise>
         );

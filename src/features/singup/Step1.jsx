@@ -94,7 +94,12 @@ function Step1({ nextStep }) {
       </div>
 
       <div className="col-span-1 lg:col-span-2">
-        <Button type="submit" variant="tertiary" disabled={isDisabled}>
+        <Button
+          AriaLabel="nextStepInSignup"
+          type="submit"
+          variant="tertiary"
+          disabled={isDisabled}
+        >
           التالي
         </Button>
       </div>

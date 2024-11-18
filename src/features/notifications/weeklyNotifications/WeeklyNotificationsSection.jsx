@@ -11,12 +11,20 @@ function WeeklyNotificationsSection() {
     <>
       <div className="flex items-center justify-between gap-[20px]">
         <div className="w-[115px]">
-          <Button variant="tertiary" styles="!bg-[#000] !text-[#fff]">
+          <Button
+            AriaLabel="previous"
+            variant="tertiary"
+            styles="!bg-[#000] !text-[#fff]"
+          >
             السابق
           </Button>
         </div>
         <div className="w-[115px]">
-          <Button variant="tertiary" styles="!bg-[#000] !text-primary">
+          <Button
+            AriaLabel="week"
+            variant="tertiary"
+            styles="!bg-[#000] !text-primary"
+          >
             الاسبوع {test}
           </Button>
         </div>

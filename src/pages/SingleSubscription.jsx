@@ -64,7 +64,7 @@ function SingleSubscription() {
           />
 
           <Button
-            // onClick={handleSubmit}
+            AriaLabel="confirmSubscription"
             type="submit"
             disabled={isLoading || isPackagesLoading}
             styles="mt-[20px]"

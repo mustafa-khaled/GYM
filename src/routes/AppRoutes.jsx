@@ -38,7 +38,7 @@ const ExerciseDetails = lazy(() => import("../pages/exercise/ExerciseDetails"));
 function AppRoutes() {
   return (
     <main className="mt-[64px] min-h-[calc(100vh-64px)] bg-bg_color">
-      <NotificationPopup />
+      {/* <NotificationPopup /> */}
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route index path="*" element={<NotFound />} />

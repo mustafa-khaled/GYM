@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NotificationsNav from "./NotificationsNav";
-import image from "../../assets/hero_section_home.jpg";
+import image from "../../assets/hero_section_home.webp";
 
 function Notifications() {
   return (

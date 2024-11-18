@@ -13,7 +13,11 @@ function NotFound() {
       <h1 className="text-[32px]">الصفحه غير موجوده</h1>
 
       <Link to={"/"} replace className="text-black">
-        <Button variant="tertiary" styles={"w-full md:w-[200px] h-[50px]"}>
+        <Button
+          AriaLabel="backToHome"
+          variant="tertiary"
+          styles={"w-full md:w-[200px] h-[50px]"}
+        >
           الرجوع للرئيسيه!
         </Button>
       </Link>

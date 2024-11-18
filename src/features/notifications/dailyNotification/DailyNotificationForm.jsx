@@ -1,19 +1,21 @@
 import { Fragment } from "react";
 import { useForm, useWatch } from "react-hook-form";
-import { isOnlySpaces } from "../../../utils/helpers";
-import { useAnswerDailyQuestions } from "../../../queries/useAnswerDailyQuestions";
 import Input from "../../../ui/Input";
 import SelectBox from "../../../ui/SelectBox";
 import Button from "../../../ui/Button";
-import useUserDailyQuestions from "../../../queries/useUserDailyQuestions";
 import Spinner from "../../../ui/spinner/Spinner";
+import { isOnlySpaces } from "../../../utils/helpers";
+import useUserDailyQuestions from "../../../queries/useUserDailyQuestions";
+import { useAnswerDailyQuestions } from "../../../queries/useAnswerDailyQuestions";
 
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString("en-US");
 
 function DailyNotificationForm() {
   const { userDailyQuestions, isQuestionsLoading } =
-    useUserDailyQuestions(formattedDate);
+    useUserDailyQuestions("11/18/2024");
+  // const { userDailyQuestions, isQuestionsLoading } =
+  //   useUserDailyQuestions(formattedDate);
 
   const { sendDailyAnswers, isSendingDailyAnswersLoading } =
     useAnswerDailyQuestions();
@@ -44,19 +46,17 @@ function DailyNotificationForm() {
     totalQuestions > 0 ? Math.round((filledFields / totalQuestions) * 100) : 0;
 
   const onSubmit = (data) => {
-    // const transformedAnswers = Object.entries(data.answers).map(
-    //   ([key, value]) => ({
-    //     key,
-    //     value,
-    //   }),
-    // );
+    const transformedAnswers = Object.entries(data.answers).map(
+      ([questionId, answer]) => ({
+        question_id: Number(questionId),
+        answer,
+      }),
+    );
 
-    // sendDailyAnswers({
-    //   date: formattedDate,
-    //   answers: transformedAnswers,
-    // });
-
-    sendDailyAnswers({ date: formattedDate, ...data });
+    sendDailyAnswers({
+      date: formattedDate,
+      answers: transformedAnswers,
+    });
   };
 
   if (isQuestionsLoading) return <Spinner className="!h-[20vh] w-full" />;
@@ -124,7 +124,11 @@ function DailyNotificationForm() {
         })}
 
         <div className="col-span-1 lg:col-span-2">
-          <Button type="submit" variant="tertiary">
+          <Button
+            AriaLabel="answersForDailyNotifications"
+            type="submit"
+            variant="tertiary"
+          >
             تم
           </Button>
         </div>
@@ -132,9 +136,9 @@ function DailyNotificationForm() {
 
       {/* Progress Bar */}
       <div className="mt-5">
-        <div className="relative h-4 w-full rounded-full bg-gray-300">
+        <div className="h-4 w-full rounded-full bg-gray-300">
           <div
-            className="absolute h-full rounded-full bg-primary"
+            className="ms-auto h-full rounded-full bg-primary transition-all duration-[1.5s]"
             style={{ width: `${progress}%` }}
           />
         </div>

@@ -48,7 +48,9 @@ function DietCalendar() {
           <div className="flex w-full items-center justify-between gap-[10px] sm:w-[300px]">
             <p>الاسبوع 2</p>
             <div className="sm:w-[150px]">
-              <Button styles={"!font-[700] p-[5px]"}>الاسابيع السابقه</Button>
+              <Button AriaLabel="previousWeeks" styles={"!font-[700] p-[5px]"}>
+                الاسابيع السابقه
+              </Button>
             </div>
           </div>
         </div>

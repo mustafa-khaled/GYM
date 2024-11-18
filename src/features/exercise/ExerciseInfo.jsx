@@ -13,7 +13,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
     <div className="p-[10px]">
       <div className="flex items-center justify-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">
         <h1>تعلميات التمرين</h1>
-        <img src={image} alt="" />
+        <img src={image} alt="Exercise Instruction" />
       </div>
 
       <p className="my-[10px] text-center">{exerciseDetails.desc}</p>
@@ -30,7 +30,9 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
         ></iframe>
       </div>
       <Link to={`/exercise/details/${exerciseId}`} onClick={onCloseModal}>
-        <Button variant="tertiary">ابدا الان</Button>
+        <Button AriaLabel="startExerciseNow" variant="tertiary">
+          ابدا الان
+        </Button>
       </Link>
     </div>
   );

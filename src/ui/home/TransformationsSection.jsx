@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import Container from "../Container";
-import afterEx from "../../assets/after_ex.png";
-import beforeEx from "../../assets/before_ex.png";
+import afterEx from "../../assets/after_ex.webp";
+import beforeEx from "../../assets/before_ex.webp";
 import TransformationList from "./TransformationList";
 
 const items = [
@@ -14,16 +14,19 @@ const items = [
   },
   {
     id: 2,
+    name: "Item 2",
     img1: beforeEx,
     img2: afterEx,
   },
   {
     id: 3,
+    name: "Item 3",
     img1: beforeEx,
     img2: afterEx,
   },
   {
     id: 4,
+    name: "Item 4",
     img1: beforeEx,
     img2: afterEx,
   },
@@ -46,6 +49,7 @@ function TransformationsSection() {
 
             <Link to={"/subscriptions"} className="text-black">
               <Button
+                AriaLabel="joinUsNow"
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
               >
@@ -58,12 +62,16 @@ function TransformationsSection() {
             <figure className="relative">
               <img
                 src={lastTransformation.img2}
-                alt=""
+                alt="after transition"
                 className="rounded-md"
               />
               <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
                 <Link to={"/contactUs"}>
-                  <Button variant="tertiary" styles={"h-[56px]"}>
+                  <Button
+                    AriaLabel="next"
+                    variant="tertiary"
+                    styles={"h-[56px]"}
+                  >
                     بعد
                   </Button>
                 </Link>
@@ -73,12 +81,16 @@ function TransformationsSection() {
             <figure className="relative">
               <img
                 src={lastTransformation.img1}
-                alt=""
+                alt="before transition"
                 className="rounded-md"
               />
               <div className="absolute bottom-[100px] left-[50%] hidden w-[199px] translate-x-[-50%] md:block">
                 <Link to={"/contactUs"}>
-                  <Button variant="tertiary" styles={"h-[56px]"}>
+                  <Button
+                    AriaLabel="previous"
+                    variant="tertiary"
+                    styles={"h-[56px]"}
+                  >
                     قبل
                   </Button>
                 </Link>

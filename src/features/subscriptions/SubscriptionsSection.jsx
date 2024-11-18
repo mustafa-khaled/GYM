@@ -73,7 +73,11 @@ function SubscriptionsSection() {
                 </ul>
 
                 <Link to={`/subscriptions/${sub.id}`} className="mt-auto">
-                  <Button variant="tertiary" styles={"!bg-black text-white"}>
+                  <Button
+                    AriaLabel="moreSubscription"
+                    variant="tertiary"
+                    styles={"!bg-black text-white"}
+                  >
                     المزيد
                   </Button>
                 </Link>

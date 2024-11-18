@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import image from "../../assets/hero_section_home.jpg";
+import image from "../../assets/hero_section_home.webp";
 import ExerciseCalendar from "./ExerciseCalendar";
 
 function Exercise() {

@@ -32,6 +32,7 @@ function FAQSection() {
 
             <Link to={"#"} className="text-black">
               <Button
+                AriaLabel="moreQuestions"
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
               >

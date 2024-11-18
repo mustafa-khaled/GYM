@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../../assets/hero_section_home.jpg";
+import image from "../../assets/hero_section_home.webp";
 import Button from "../Button";
 import Container from "../Container";
 
@@ -26,6 +26,7 @@ function HeroSection() {
           </p>
           <Link to={"/contactUs"} className="text-black">
             <Button
+              AriaLabel="joinUsNow"
               variant="tertiary"
               styles={"lg:w-[438px] w-full md:w-[400px] md:h-[72px] h-[50px]"}
             >

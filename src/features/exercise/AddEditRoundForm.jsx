@@ -158,7 +158,11 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
       </GridContainer>
 
       <div className="mt-[20px] w-[80px] self-end">
-        <Button type="submit" disabled={isWorking}>
+        <Button
+          AriaLabel={isEditingSession ? "editRound" : "addRound"}
+          type="submit"
+          disabled={isWorking}
+        >
           {isEditingSession ? "تعديل" : "إضافة"}
         </Button>
       </div>

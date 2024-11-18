@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import exersizeImage from "../../assets/exersise_program.png";
+import exersizeImage from "../../assets/exersise_program.webp";
 import Button from "../Button";
 import Container from "../Container";
 
@@ -28,6 +28,7 @@ function ExercisesSection() {
 
             <Link to={"/exercise"} className="text-black">
               <Button
+                AriaLabel="moreExercise"
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
               >

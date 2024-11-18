@@ -18,6 +18,7 @@ function TableFooter() {
         onClick={handleCompleteExercise}
         disabled={isLoading}
         variant="tertiary"
+        AriaLabel="completeExercise"
       >
         اتمام التمرينه
       </Button>
@@ -27,6 +28,7 @@ function TableFooter() {
             disabled={isLoading}
             variant="tertiary"
             styles={"!bg-[#000] text-primary border-primary border"}
+            AriaLabel="addNewRound"
           >
             اضافه جوله
           </Button>

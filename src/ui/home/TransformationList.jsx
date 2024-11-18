@@ -26,6 +26,7 @@ const responsive = {
 const CustomLeftArrow = ({ onClick }) => {
   return (
     <button
+      aria-label="previous"
       onClick={onClick}
       className="absolute left-0 top-1/2 z-10 flex h-[30px] w-[30px] -translate-y-1/2 items-center justify-center rounded-full bg-primary text-white shadow-md hover:opacity-80 focus:outline-none"
     >
@@ -38,6 +39,7 @@ const CustomLeftArrow = ({ onClick }) => {
 const CustomRightArrow = ({ onClick }) => {
   return (
     <button
+      aria-label="next"
       onClick={onClick}
       className="absolute right-0 top-1/2 z-10 flex h-[30px] w-[30px] -translate-y-1/2 items-center justify-center rounded-full bg-primary text-white shadow-md hover:opacity-80 focus:outline-none"
     >
@@ -73,13 +75,13 @@ function TransformationList({ items }) {
           {/* Primary Image */}
           <img
             src={item.img1}
-            alt={item.name}
+            alt={`${item.name} before`}
             className="h-full w-full object-contain transition-opacity duration-300 group-hover:opacity-0"
           />
           {/* Secondary Image */}
           <img
             src={item.img2}
-            alt={`${item.name} hover`}
+            alt={`${item.name} after`}
             className="absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
           <h3 className="mt-4 text-center font-medium">{item.name}</h3>

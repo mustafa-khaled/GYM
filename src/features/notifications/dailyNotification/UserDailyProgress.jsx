@@ -1,9 +1,8 @@
-import { PiDotsThreeCircleVertical } from "react-icons/pi";
 import DailyNotificationForm from "./DailyNotificationForm";
 
 function UserDailyProgress() {
   return (
-    <div className="h-[65vh] overflow-y-scroll rounded-lg bg-[#000] p-[20px]">
+    <div className="h-fit max-h-[65vh] overflow-y-scroll rounded-lg bg-[#000] p-[20px]">
       <div className="mb-[30px] text-center">
         <h1 className="text-[24px] font-[700] leading-[24px]">
           صفحه المتدرب ومتابعه التطور

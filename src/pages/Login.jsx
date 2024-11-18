@@ -1,4 +1,4 @@
-import image from "../assets/hero_section_home.jpg";
+import image from "../assets/hero_section_home.webp";
 import LoginForm from "../features/login/LoginForm";
 import Container from "../ui/Container";
 

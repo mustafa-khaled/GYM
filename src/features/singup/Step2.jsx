@@ -87,7 +87,12 @@ function Step2({ previousStep, submitForm, isLoading }) {
       />
 
       <div className="col-span-1 lg:col-span-2">
-        <Button disabled={isLoading} type="submit" variant="tertiary">
+        <Button
+          AriaLabel="signup"
+          disabled={isLoading}
+          type="submit"
+          variant="tertiary"
+        >
           تسجيل
         </Button>
       </div>

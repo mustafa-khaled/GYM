@@ -32,6 +32,7 @@ function Input({
         />
         {type === "password" && (
           <button
+            aria-label={isPasswordVisible ? "hidePassword" : "showPassword"}
             type="button"
             onClick={togglePasswordVisibility}
             className="absolute left-[10px] top-[60%] translate-y-[-50%] text-xl text-slate-600"

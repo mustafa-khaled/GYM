@@ -1,6 +1,6 @@
 import Container from "../Container";
-import diet1 from "../../assets/home_diet.png";
-import diet2 from "../../assets/hme_diet2.png";
+import diet1 from "../../assets/home_diet.webp";
+import diet2 from "../../assets/home_diet2.webp";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 
@@ -17,7 +17,11 @@ function DietSection() {
             />
           </div>
           <div className="hidden items-center justify-center md:flex md:w-[65%]">
-            <img src={diet2} alt="" className="h-[535px] w-[432px]" />
+            <img
+              src={diet2}
+              alt="Second Diet"
+              className="h-[535px] w-[432px]"
+            />
           </div>
 
           <div className="absolute right-[50%] top-[50%] flex w-[90%] translate-x-[50%] flex-col rounded-md bg-black p-[24px] md:right-[10%] md:w-[500px] md:translate-x-0 lg:h-[284px] lg:w-[646px]">
@@ -30,6 +34,7 @@ function DietSection() {
 
             <Link to={"/diet"} className="text-black">
               <Button
+                AriaLabel="moreDietPlans"
                 variant="tertiary"
                 styles={"w-full md:w-[200px] h-[50px]"}
               >

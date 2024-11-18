@@ -12,7 +12,9 @@ function TableTitle() {
         <p className="md:text-[20px]">مده الاشتراك {test}: شهور</p>
         <p className="mt-[10px] flex items-center gap-[10px]">
           <span className="w-[150px]">متبقي {test} يوم</span>
-          <Button styles={"w-[130px]"}>تجديد الان</Button>
+          <Button AriaLabel="renewNow" styles={"w-[130px]"}>
+            تجديد الان
+          </Button>
         </p>
       </div>
     </div>

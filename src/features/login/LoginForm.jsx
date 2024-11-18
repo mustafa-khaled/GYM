@@ -63,7 +63,12 @@ function LoginForm() {
         />
 
         <div className="col-span-1 lg:col-span-2">
-          <Button disabled={isLoading} type="submit" variant="tertiary">
+          <Button
+            AriaLabel="register"
+            disabled={isLoading}
+            type="submit"
+            variant="tertiary"
+          >
             {isLoading ? "يتم التحميل..." : "تسجيل"}
           </Button>
         </div>

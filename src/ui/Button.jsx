@@ -5,6 +5,7 @@ function Button({
   type = "button",
   styles,
   disabled,
+  AriaLabel,
 }) {
   const baseStyles =
     "h-[36px] w-full rounded-[4px] font-medium transition-all font-bold";
@@ -23,6 +24,7 @@ function Button({
       onClick={onClick}
       disabled={disabled}
       className={`${baseStyles} ${variantStyles[variant]} disabled:cursor-not-allowed ${styles}`}
+      aria-label={AriaLabel}
     >
       {children}
     </button>

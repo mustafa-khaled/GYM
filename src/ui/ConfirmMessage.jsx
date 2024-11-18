@@ -16,10 +16,19 @@ export default function ConfirmMessage({
       <p className="mb-[1.2rem]">{message}</p>
 
       <div className="flex justify-end gap-[1.2rem]">
-        <Button loading={disabled} onClick={handleConfirm}>
+        <Button
+          AriaLabel="acceptConfirm"
+          loading={disabled}
+          onClick={handleConfirm}
+        >
           نعم
         </Button>
-        <Button loading={disabled} variant="secondary" onClick={onCloseModal}>
+        <Button
+          AriaLabel="refuseConfirm"
+          loading={disabled}
+          variant="secondary"
+          onClick={onCloseModal}
+        >
           إلغاء
         </Button>
       </div>

@@ -1,4 +1,4 @@
-import image from "../assets/hero_section_home.jpg";
+import image from "../assets/hero_section_home.webp";
 import DietCalendar from "../features/diet/DietCalendar";
 import MealsChart from "../features/diet/MealsChart";
 import MealsList from "../features/diet/MealsList";

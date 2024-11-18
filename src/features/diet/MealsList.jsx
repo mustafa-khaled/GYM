@@ -37,7 +37,7 @@ const fakeMeals = [
 function MealsList() {
   return (
     <div className="w-full rounded-md bg-bg_color p-[20px] md:w-[50%]">
-      <Button styles={"!font-[700]"}>
+      <Button AriaLabel="copyTable" styles={"!font-[700]"}>
         <span className="flex items-center justify-center gap-[10px]">
           <IoCopyOutline />
           نسخ الجدول لبكره
@@ -56,10 +56,14 @@ function MealsList() {
                 </div>
               </div>
               <div className="mt-[20px] flex items-center justify-between gap-[10px]">
-                <Button>اضافه صنف</Button>
+                <Button AriaLabel="addClassify">اضافه صنف</Button>
                 <div className="hidden w-[25%] md:block"></div>
-                <Button styles={"!bg-[#B0B0B0]"}>اسم الصنف</Button>
-                <Button styles={"!bg-[#B0B0B0]"}>الكميه والوحده</Button>
+                <Button AriaLabel="ClassifyName" styles={"!bg-[#B0B0B0]"}>
+                  اسم الصنف
+                </Button>
+                <Button AriaLabel="Quantity" styles={"!bg-[#B0B0B0]"}>
+                  الكميه والوحده
+                </Button>
               </div>
             </div>
           );
@@ -67,7 +71,9 @@ function MealsList() {
       </div>
 
       <div className="mt-[20px] flex items-center justify-center rounded-md bg-[#000] p-[10px]">
-        <Button styles={"!font-[700] !w-[100px]"}>اضافه وجبه</Button>
+        <Button AriaLabel="anotherMeal" styles={"!font-[700] !w-[100px]"}>
+          اضافه وجبه
+        </Button>
       </div>
     </div>
   );

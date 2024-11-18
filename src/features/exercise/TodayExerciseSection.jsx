@@ -14,17 +14,17 @@ function TodayExerciseSection() {
     <div className="rounded-md bg-bg_color p-[20px]">
       <div className="flex items-center justify-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">
         <h1>{muscleName}</h1>
-        <img src={image} alt="" />
+        <img src={image} alt="Single Muscle" />
       </div>
       <div className="my-[20px] flex flex-col items-center gap-[20px] md:flex-row">
         {/* ffff */}
         <ExercisesList />
         <div className="flex w-full items-center justify-center md:justify-end">
-          <img src={imag2} alt="" />
+          <img src={imag2} alt="main excercise" />
         </div>
       </div>
       {/* <StartNow>
-        <Button variant="tertiary">ابدا الان</Button>
+        <Button AriaLabel="startNow" variant="tertiary">ابدا الان</Button>
       </StartNow> */}
     </div>
   );

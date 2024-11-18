@@ -35,6 +35,7 @@ function Window({ children, name }) {
       <div className="fixed left-0 top-0 z-[103] h-full w-full">
         <div className="fixed left-[50%] top-[50%] z-50 max-h-[90vh] w-[90%] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-[#000] p-[15px] text-[#fff] shadow-md md:w-[750px] md:p-[30px] lg:w-[800px]">
           <button
+            aria-label="closeModal"
             onClick={close}
             className="absolute left-[10px] top-[10px] text-[#fff]"
           >
