@@ -11,6 +11,7 @@ const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const SignUp = lazy(() => import("../pages/SignUp"));
 const Login = lazy(() => import("../pages/Login"));
+const ContactUs = lazy(() => import("../pages/ContactUs"));
 
 const Notifications = lazy(
   () => import("../pages/notifications/Notifications"),
@@ -45,6 +46,7 @@ function AppRoutes() {
           <Route index path="/" element={<Home />} />
           <Route index path="/signUp" element={<SignUp />} />
           <Route index path="/login" element={<Login />} />
+          <Route index path="/contactUs" element={<ContactUs />} />
 
           <Route
             path="notifications"

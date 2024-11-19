@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Header from "./ui/header/Header";
 import AppRoutes from "./routes/AppRoutes";
+import Footer from "./ui/footer/Footer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Router>
         <Header />
         <AppRoutes />
+        <Footer />
       </Router>
 
       {/* Toast library settings */}
