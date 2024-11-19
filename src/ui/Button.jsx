@@ -13,7 +13,7 @@ function Button({
   const variantStyles = {
     primary: "bg-primary text-black hover:bg-[#e35935] disabled:bg-[#90280d]",
     secondary:
-      "bg-transparent border border-[#fff] text-[#fff] hover:text-primary hover:border-primary",
+      "bg-transparent border text-primary border-primary hover:bg-primary hover:text-black",
     tertiary:
       "bg-primary text-black hover:bg-[#e35935] disabled:bg-[#90280d] h-[50px] md:text-[20px] text-[16px] font-[900] !font-bold",
   };
