@@ -10,8 +10,9 @@ const NotificationHandler = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (token) {
+    if (token && !sessionStorage.getItem("NOTIFICATION_PROMPT_SHOWN")) {
       setShowModal(true);
+      sessionStorage.setItem("NOTIFICATION_PROMPT_SHOWN", "true");
     }
   }, [token]);
 
@@ -28,11 +29,11 @@ const NotificationHandler = () => {
     } catch (error) {
       console.error("An error occurred while retrieving token:", error);
     }
-    setShowModal(false); // Close modal
+    setShowModal(false);
   };
 
   const handleNo = () => {
-    setShowModal(false); // Close modal without requesting token
+    setShowModal(false);
   };
 
   return (

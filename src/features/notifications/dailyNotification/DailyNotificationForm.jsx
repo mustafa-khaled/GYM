@@ -1,21 +1,19 @@
 import { Fragment } from "react";
 import { useForm, useWatch } from "react-hook-form";
+import { isOnlySpaces } from "../../../utils/helpers";
+import { useAnswerDailyQuestions } from "../../../queries/useAnswerDailyQuestions";
 import Input from "../../../ui/Input";
 import SelectBox from "../../../ui/SelectBox";
 import Button from "../../../ui/Button";
 import Spinner from "../../../ui/spinner/Spinner";
-import { isOnlySpaces } from "../../../utils/helpers";
 import useUserDailyQuestions from "../../../queries/useUserDailyQuestions";
-import { useAnswerDailyQuestions } from "../../../queries/useAnswerDailyQuestions";
 
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString("en-US");
 
 function DailyNotificationForm() {
   const { userDailyQuestions, isQuestionsLoading } =
-    useUserDailyQuestions("11/18/2024");
-  // const { userDailyQuestions, isQuestionsLoading } =
-  //   useUserDailyQuestions(formattedDate);
+    useUserDailyQuestions(formattedDate);
 
   const { sendDailyAnswers, isSendingDailyAnswersLoading } =
     useAnswerDailyQuestions();

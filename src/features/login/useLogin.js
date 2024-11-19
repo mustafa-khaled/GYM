@@ -13,6 +13,7 @@ export function useLogin() {
       localStorage.setItem("GYM_USER_TOKEN", data.data.user.token);
       toast.success("تم تسجيل الدخول بنجاح");
       navigate("/", { replace: true });
+      navigate(0);
     },
     onError: (error) => {
       toast.error("فشل في تسجيل الدخول");
