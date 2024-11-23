@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 
-const iconsStyle = "text-2xl transition-all lg:text-3xl ";
+const iconsStyle = "text-2xl transition-all ";
 
 export default function MoreInformationDetails() {
   return (

@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useUserExercisesByMuscle } from "../../queries/useUserExercisesByMuscle";
 import image from "../../assets/exerciseEx.png";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/spinner/Spinner";
 
 function ExerciseInfo({ onCloseModal, exerciseId }) {
+  const [searchParams] = useSearchParams();
+  const date = searchParams.get("date");
+
   const { exerciseDetails, isLoading } = useUserExercisesByMuscle(exerciseId);
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
@@ -15,9 +18,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
         <h1>تعلميات التمرين</h1>
         <img src={image} alt="Exercise Instruction" />
       </div>
-
       <p className="my-[10px] text-center">{exerciseDetails.desc}</p>
-
       <div className="my-[20px] rounded-md">
         <iframe
           width="100%"
@@ -29,7 +30,10 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
           allowFullScreen
         ></iframe>
       </div>
-      <Link to={`/exercise/details/${exerciseId}`} onClick={onCloseModal}>
+      <Link
+        to={`/exercise/details/${exerciseId}?date=${date}`}
+        onClick={onCloseModal}
+      >
         <Button AriaLabel="startExerciseNow" variant="tertiary">
           ابدا الان
         </Button>

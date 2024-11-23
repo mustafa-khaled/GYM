@@ -7,6 +7,7 @@ import { NUMBER_INPUT_REGEX } from "../../utils/constant";
 import Button from "../../ui/Button";
 import GridContainer from "../../ui/GridContainer";
 import Input from "../../ui/Input";
+import SelectBox from "../../ui/SelectBox";
 
 const initialState = {
   repeat: "",
@@ -74,26 +75,26 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
       </h1>
 
       <GridContainer>
-        <Input
-          label="عدد التكرار"
+        <SelectBox
+          options={[
+            {
+              value: "8",
+              title: "8",
+            },
+            {
+              value: "10",
+              title: "10",
+            },
+            {
+              value: "12",
+              title: "12 || +12",
+            },
+          ]}
+          label={"عدد التكرار"}
           name="repeat"
-          placeholder="عدد التكرار"
-          disabled={isWorking}
-          error={errors?.repeat?.message}
           register={register}
-          validationRules={{
-            required: "هذا الحقل مطلوب",
-
-            validate: {
-              noOnlySpaces: (value) =>
-                !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
-            },
-
-            pattern: {
-              value: NUMBER_INPUT_REGEX,
-              message: "هذا الحقل يجب أن يحتوي علي أرقام فقط",
-            },
-          }}
+          validationRules={{ required: "هذا الحقل مطلوب" }}
+          error={errors?.repeat?.message}
         />
 
         <Input

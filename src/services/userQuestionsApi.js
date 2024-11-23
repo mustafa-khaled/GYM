@@ -48,3 +48,26 @@ export async function userWeeklyQuestions(weekNumber) {
     throw error;
   }
 }
+
+export async function answerWeekEvaluation(data) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  try {
+    const response = await axios.post(
+      "answer-week-questions",
+      {
+        front_image: "",
+        back_image: "",
+        question_id: "",
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

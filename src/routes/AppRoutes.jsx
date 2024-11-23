@@ -1,5 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
 import Spinner from "../ui/spinner/Spinner";
 import Diet from "../pages/Diet";
 import Subscriptions from "../pages/Subscriptions";
@@ -37,6 +37,12 @@ const TodayExercise = lazy(() => import("../pages/exercise/TodayExercise"));
 const ExerciseDetails = lazy(() => import("../pages/exercise/ExerciseDetails"));
 
 function AppRoutes() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className="mt-[64px] min-h-[calc(100vh-64px)] bg-bg_color">
       <NotificationPopup />
