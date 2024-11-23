@@ -16,17 +16,22 @@ export async function userQuestions(date) {
   }
 }
 
-export async function answerQuestions(data) {
+export async function answerQuestions({ date, answers }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
-  console.log("answers", data);
-
   try {
-    const response = await axios.post("answer-questions", data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await axios.post(
+      "answer-questions",
+      {
+        date,
+        answers: JSON.stringify(answers),
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
 
     return response.data;
   } catch (error) {

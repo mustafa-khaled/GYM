@@ -95,10 +95,14 @@ function DailyNotificationForm() {
                       noOnlySpaces: (value) =>
                         !isOnlySpaces(value) ||
                         "لا يجب أن يحتوي على مسافات فقط",
+                      ...(userQuestion?.question?.type === "number" && {
+                        isNumber: (value) =>
+                          (value && !isNaN(value)) || "يجب أن يكون رقمًا",
+                      }),
                     },
                   }}
                   placeholder={userQuestion?.question?.question}
-                  error={errors?.[fieldName]?.message}
+                  error={errors.answers?.[userQuestion?.id]?.message}
                   disabled={isDisabled}
                 />
               )}
