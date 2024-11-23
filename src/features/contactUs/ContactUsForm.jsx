@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { isOnlySpaces } from "../../utils/helpers";
-import { EMAIL_REGEX } from "../../utils/constant";
+import { EMAIL_REGEX, NUMBER_INPUT_REGEX } from "../../utils/constant";
 import { useAddContact } from "../../queries/useAddContact";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
@@ -10,14 +10,12 @@ import TextArea from "../../ui/TextArea";
 const initialState = {
   name: "",
   email: "",
-  subject: "",
+  phone: "",
   message: "",
 };
 
 export default function ContactUsForm() {
   const { addContact, isAddingContact } = useAddContact();
-
-  console.log(isAddingContact);
 
   const {
     register,
@@ -78,17 +76,17 @@ export default function ContactUsForm() {
         />
 
         <Input
-          label="العنوان"
-          name="subject"
-          placeholder="العنوان"
+          label="الهاتف"
+          name="phone"
+          placeholder="الهاتف"
           disabled={isWorking}
-          error={errors?.subject?.message}
+          error={errors?.phone?.message}
           register={register}
           validationRules={{
             required: "هذا الحقل مطلوب",
-            validate: {
-              noOnlySpaces: (value) =>
-                !isOnlySpaces(value) || "لا يجب أن يحتوي على مسافات فقط",
+            pattern: {
+              value: NUMBER_INPUT_REGEX,
+              message: "ارقام فقط",
             },
           }}
         />

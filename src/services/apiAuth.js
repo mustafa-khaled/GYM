@@ -49,3 +49,19 @@ export async function storeToken(deviceId) {
     throw error;
   }
 }
+
+export async function subscribeDuration() {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  try {
+    const response = await axios.get("subscribe-duration", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

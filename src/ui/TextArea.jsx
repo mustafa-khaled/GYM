@@ -16,7 +16,7 @@ function TextArea({
           disabled={disabled}
           placeholder={placeholder}
           id={placeholder}
-          className="form-input !h-auto resize-none"
+          className="form-input !h-auto resize-none py-[10px]"
           {...register(name, validationRules)}
           rows={Rows}
         />

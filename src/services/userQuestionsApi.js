@@ -16,22 +16,22 @@ export async function userQuestions(date) {
   }
 }
 
-export async function answerQuestions({ date, answers }) {
+export async function answerQuestions(data) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
-  console.log("data", answers);
-  // try {
-  //   const response = await axios.post("answer-questions", data, {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //   });
+  console.log("answers", data);
 
-  //   return response.data;
-  // } catch (error) {
-  //   throw error;
-  // }
+  try {
+    const response = await axios.post("answer-questions", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function userWeeklyQuestions(weekNumber) {
@@ -43,6 +43,7 @@ export async function userWeeklyQuestions(weekNumber) {
         Authorization: `Bearer ${token}`,
       },
     });
+
     return response.data;
   } catch (error) {
     throw error;
@@ -53,19 +54,13 @@ export async function answerWeekEvaluation(data) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.post(
-      "answer-week-questions",
-      {
-        front_image: "",
-        back_image: "",
-        question_id: "",
+    const response = await axios.post("answer-week-questions", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
       },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    );
+    });
+
     return response.data;
   } catch (error) {
     throw error;

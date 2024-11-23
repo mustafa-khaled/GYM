@@ -72,7 +72,7 @@ function DailyNotificationForm() {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 items-center gap-[20px] lg:grid-cols-2"
+        className="grid grid-cols-1 items-center gap-[20px] md:grid-cols-2"
       >
         {userDailyQuestions?.map((userQuestion) => {
           const fieldName = `answers[${userQuestion?.id}]`;
@@ -121,7 +121,7 @@ function DailyNotificationForm() {
           );
         })}
 
-        <div className="col-span-1 lg:col-span-2">
+        <div className="col-span-1 md:col-span-2">
           <Button
             AriaLabel="answersForDailyNotifications"
             type="submit"

@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { LuFileImage } from "react-icons/lu";
 
-export default function UploadFile({
-  placeholder,
-  onFileChange,
-  error,
-  disabled,
-}) {
-  const handleInputChange = (event) => {
+export default function UploadFile({ placeholder, register, error, disabled }) {
+  const [preview, setPreview] = useState(null);
+
+  const handlePreview = (event) => {
     const file = event.target.files[0];
-    if (onFileChange) onFileChange(file);
+    if (file) {
+      const previewUrl = URL.createObjectURL(file);
+      setPreview(previewUrl);
+    }
   };
 
   return (
@@ -19,15 +20,29 @@ export default function UploadFile({
         placeholder={placeholder}
         id={placeholder}
         className="hidden"
-        onChange={handleInputChange}
+        {...register}
+        onChange={(e) => {
+          register.onChange(e);
+          handlePreview(e);
+        }}
       />
 
       <div
-        className="flex min-h-[55vh] cursor-pointer flex-col items-center justify-center gap-[40px] rounded-md border"
+        className="flex h-[50vh] cursor-pointer flex-col items-center justify-center gap-[40px] rounded-md border"
         onClick={() => document.getElementById(placeholder)?.click()}
       >
-        <LuFileImage className="text-[100px] text-primary" />
-        <h4 className="font-[600] leading-[24px]">{placeholder}</h4>
+        {preview ? (
+          <img
+            src={preview}
+            alt="Preview"
+            className="h-full w-full rounded-md object-cover"
+          />
+        ) : (
+          <>
+            <LuFileImage className="text-[100px] text-primary" />
+            <h4 className="font-[600] leading-[24px]">{placeholder}</h4>
+          </>
+        )}
       </div>
 
       {error && (
