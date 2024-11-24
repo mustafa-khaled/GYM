@@ -8,6 +8,8 @@ function FollowDevelopment() {
   const { isLoading, notificationsMeasurements } =
     useNotificationsMeasurements();
 
+  console.log(notificationsMeasurements);
+
   if (isLoading) return <Spinner />;
   if (!notificationsMeasurements?.length)
     return <Empty message={"فشل في عرض البيانات."} />;
