@@ -16,6 +16,9 @@ const ContactUs = lazy(() => import("../pages/ContactUs"));
 const Notifications = lazy(
   () => import("../pages/notifications/Notifications"),
 );
+const MainNotifications = lazy(
+  () => import("../pages/notifications/MainNotifications"),
+);
 const DailyNotification = lazy(
   () => import("../pages/notifications/DailyNotification"),
 );
@@ -62,7 +65,7 @@ function AppRoutes() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Navigate replace to="daily" />} />
+            <Route index element={<MainNotifications />} />
             <Route path="daily" element={<DailyNotification />} />
             <Route path="weekly" element={<WeeklyNotifications />} />
             <Route
