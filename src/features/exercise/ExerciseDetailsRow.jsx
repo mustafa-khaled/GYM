@@ -25,10 +25,7 @@ function ExerciseDetailsRow({ item }) {
         </span>
       </Table.Cell>
       <Table.Cell>
-        {/* <EditWeight weight={11} /> */}
-        <span className="flex w-full cursor-pointer items-center justify-center bg-[#909090] p-[10px] text-[#000]">
-          {item?.weight}
-        </span>
+        <EditWeight item={item} />
       </Table.Cell>
       <Table.Cell>
         <div className="flex w-full items-center gap-[5px] text-[#000]">

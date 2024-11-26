@@ -1,12 +1,15 @@
 import { FaCirclePlus } from "react-icons/fa6";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { useState } from "react";
+import { useEditRound } from "../../queries/useEditRound";
 
 const keyStyles =
   "flex h-[64px] items-center justify-center bg-[#909090] text-[#000] cursor-pointer";
 
-function EditWeightKeyboard({ weight = 0, onCloseModal }) {
-  const [currentWeight, setCurrentWeight] = useState(weight);
+function EditWeightKeyboard({ item, onCloseModal }) {
+  const { editRound } = useEditRound();
+
+  const [currentWeight, setCurrentWeight] = useState(item?.weight || 0);
 
   const handleKeyClick = (keyValue) => {
     if (keyValue === "+") {
@@ -22,12 +25,32 @@ function EditWeightKeyboard({ weight = 0, onCloseModal }) {
     }
   };
 
+  function handleChangeWeight() {
+    const data = {
+      repeat: item?.repeat,
+      weight: currentWeight,
+      set: item?.set,
+      note: item?.note,
+    };
+    editRound(
+      {
+        roundId: item?.id,
+        data,
+      },
+      {
+        onSuccess: () => {
+          onCloseModal?.();
+        },
+      },
+    );
+  }
+
   return (
     <div className="pt-[10px] text-[20px] font-[600] leading-[24px]">
       <div className={keyStyles}>{currentWeight}</div>
 
       <div className="mt-[5px] grid grid-cols-4 gap-[5px]">
-        <div className={`${keyStyles} bg-primary`} onClick={onCloseModal}>
+        <div className={`${keyStyles} bg-primary`} onClick={handleChangeWeight}>
           تم
         </div>
         <div className={keyStyles} onClick={() => handleKeyClick(3)}>

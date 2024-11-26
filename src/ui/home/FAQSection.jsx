@@ -30,7 +30,7 @@ function FAQSection() {
               بعض الاسئله التي قد تخطر في بالك
             </p>
 
-            <Link to={"#"} className="text-black">
+            <Link to={"/contactUs"}>
               <Button
                 AriaLabel="moreQuestions"
                 variant="tertiary"
