@@ -1,5 +1,5 @@
 import { IoCopyOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useUserDietByDate } from "../../queries/useUserDietByDate";
 import Button from "../../ui/Button";
 import mealImage from "../../assets/meal.png";
@@ -7,7 +7,8 @@ import Spinner from "../../ui/spinner/Spinner";
 
 function MealsList() {
   const navigate = useNavigate();
-  const date = "2024-10-26";
+  const [searchParams] = useSearchParams();
+  const date = searchParams.get("date");
 
   const { isLoading, userDietByDate } = useUserDietByDate(date);
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
