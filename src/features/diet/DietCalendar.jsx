@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useSubscribeDuration } from "../../queries/useSubscribeDuration";
 import Button from "../../ui/Button";
 import Container from "../../ui/Container";
 
 function DietCalendar() {
+  const { data } = useSubscribeDuration();
   const [weekDays, setWeekDays] = useState([]);
 
   const currentDayIndex = new Date().getDay();
@@ -46,7 +48,7 @@ function DietCalendar() {
           </div>
 
           <div className="flex w-full items-center justify-between gap-[10px] sm:w-[300px]">
-            <p>الاسبوع 2</p>
+            <p>الاسبوع {data?.current_week || 0}</p>
             <div className="sm:w-[150px]">
               <Button AriaLabel="previousWeeks" styles={"!font-[700] p-[5px]"}>
                 الاسابيع السابقه
