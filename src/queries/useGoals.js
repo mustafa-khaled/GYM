@@ -12,8 +12,8 @@ export function useGoals() {
   });
 
   const goals = data?.data?.goals.map((goal) => ({
-    value: goal.id,
-    title: goal.name,
+    value: goal?.id,
+    label: goal?.name,
   }));
 
   return {

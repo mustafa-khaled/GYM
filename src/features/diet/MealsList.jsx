@@ -8,7 +8,9 @@ import Spinner from "../../ui/spinner/Spinner";
 function MealsList() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const date = searchParams.get("date");
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const date = searchParams.get("date") || currentDate;
 
   const { isLoading, userDietByDate } = useUserDietByDate(date);
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;

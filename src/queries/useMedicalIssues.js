@@ -12,8 +12,8 @@ export function useMedicalIssues() {
   });
 
   const medicalIssues = data?.data?.medical_issues.map((issue) => ({
-    value: issue.id,
-    title: issue.name,
+    value: issue?.id,
+    label: issue?.name,
   }));
 
   return {

@@ -21,15 +21,19 @@ const MultiStepForm = () => {
 
   const submitForm = (data) => {
     const finalData = { ...formData, ...data };
+    const goals = finalData?.goal?.map((goal) => goal?.value);
+    const medical_issues = finalData?.medicalCondition?.map(
+      (condition) => `${condition?.value}`,
+    );
 
     signUp({
       name: finalData?.name,
       email: finalData?.email,
       password: finalData?.password,
       password_confirmation: finalData?.confirmPassword,
-      gender: finalData?.gender,
-      goals: [+finalData?.goal],
-      medical_issues: [+finalData?.medicalCondition],
+      gender: finalData?.gender?.value,
+      goals,
+      medical_issues,
       device_id: null,
     });
   };

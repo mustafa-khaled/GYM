@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa6";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { useGoals } from "../../queries/useGoals";
 import { useMedicalIssues } from "../../queries/useMedicalIssues";
 
 import Button from "../../ui/Button";
-import SelectBox from "../../ui/SelectBox";
+import Choose from "../../ui/Choose";
 
 function Step1({ nextStep }) {
   const { MedicalIssueLoading, medicalIssues } = useMedicalIssues();
@@ -13,8 +13,8 @@ function Step1({ nextStep }) {
   const isDisabled = MedicalIssueLoading || goalsLoading;
 
   const {
-    register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useFormContext();
 
@@ -32,44 +32,66 @@ function Step1({ nextStep }) {
       onSubmit={handleSubmit(onSubmit)}
       className="grid min-h-[70vh] grid-cols-1 gap-[20px] lg:grid-cols-2"
     >
-      <SelectBox
-        options={[
-          {
-            value: "male",
-            title: "ذكر",
-          },
-          {
-            value: "female",
-            title: "انثي",
-          },
-        ]}
-        label={"النوع"}
+      <Controller
         name="gender"
-        register={register}
-        validationRules={{ required: "هذا الحقل مطلوب" }}
-        error={errors?.gender?.message}
+        control={control}
+        rules={{ required: " هذا الحقل مطلوب" }}
+        render={({ field }) => (
+          <Choose
+            {...field}
+            options={[
+              {
+                value: "male",
+                label: "ذكر",
+              },
+              {
+                value: "female",
+                label: "انثي",
+              },
+            ]}
+            label={"النوع"}
+            error={errors?.gender?.message}
+          />
+        )}
       />
-      <SelectBox
-        disabled={isDisabled}
-        options={goals || []}
-        label={"الأهداف الشخصية: (خسارة وزن، بناء عضلات، تحسين اللياقة العامة)"}
+
+      <Controller
         name="goal"
-        register={register}
-        validationRules={{ required: "هذا الحقل مطلوب" }}
-        error={errors?.goal?.message}
+        control={control}
+        rules={{ required: " هذا الحقل مطلوب" }}
+        render={({ field }) => (
+          <Choose
+            isLoading={goalsLoading}
+            disabled={isDisabled}
+            isMulti={true}
+            {...field}
+            options={goals || []}
+            label={
+              "الأهداف الشخصية: (خسارة وزن، بناء عضلات، تحسين اللياقة العامة)"
+            }
+            error={errors?.goal?.message}
+          />
+        )}
       />
 
       <div className="col-span-1 lg:col-span-2">
-        <SelectBox
-          disabled={isDisabled}
-          options={medicalIssues || []}
-          label={
-            "الحالات الطبية: (إذا كانت هناك أي أمراض أو مشاكل صحية يجب معرفتها)"
-          }
+        <Controller
           name="medicalCondition"
-          register={register}
-          validationRules={{ required: "هذا الحقل مطلوب" }}
-          error={errors?.medicalCondition?.message}
+          control={control}
+          rules={{ required: " هذا الحقل مطلوب" }}
+          render={({ field }) => (
+            <Choose
+              isLoading={MedicalIssueLoading}
+              isMulti={true}
+              disabled={isDisabled}
+              {...field}
+              options={medicalIssues || []}
+              label={
+                "الحالات الطبية: (إذا كانت هناك أي أمراض أو مشاكل صحية يجب معرفتها)"
+              }
+              error={errors?.medicalCondition?.message}
+            />
+          )}
         />
       </div>
 
