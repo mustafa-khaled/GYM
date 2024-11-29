@@ -42,7 +42,7 @@ function TrainerMealsList() {
                 </div>
               </div>
               <div className="mt-[20px] flex items-center justify-between gap-[10px]">
-                <Link to={`allMeals/${date}`} className="w-full">
+                <Link to={`allMeals`} className="w-full">
                   <Button AriaLabel="addClassify">اضافه صنف</Button>
                 </Link>
                 <div className="hidden w-[25%] md:block"></div>

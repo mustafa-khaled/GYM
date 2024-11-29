@@ -98,7 +98,7 @@ function AppRoutes() {
             }
           >
             <Route index element={<TrainerDietPage />} />
-            <Route path="allMeals/:date" element={<AllMealsWithDetails />} />
+            <Route path="allMeals" element={<AllMealsWithDetails />} />
           </Route>
 
           <Route index path="/subscriptions" element={<Subscriptions />} />
