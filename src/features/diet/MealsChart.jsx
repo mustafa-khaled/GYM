@@ -3,7 +3,7 @@ import ProgressCircle from "../../ui/ProgressCircle";
 function MealsChart() {
   return (
     <div className="w-full rounded-md bg-bg_color p-[20px] md:w-[50%]">
-      <div className="mb-[10px] flex h-[60vh] flex-col items-center justify-center gap-[20px]">
+      <div className="mb-[10px] flex h-[50vh] flex-col items-center justify-center gap-[20px]">
         <h2 className="text-[20px] font-[700] leading-[24px] md:text-[24px]">
           السعرات اليوميه
         </h2>

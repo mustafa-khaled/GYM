@@ -107,13 +107,12 @@ function Choose({
   options,
   label,
   name,
-  //   register,
-  validationRules,
   isLoading,
   error,
   disabled,
   isMulti,
   onChange,
+  field,
 }) {
   return (
     <div className={"w-full"}>
@@ -138,7 +137,7 @@ function Choose({
           menuPortalTarget={document.body}
           menuShouldBlockScroll={true}
           onChange={onChange}
-          //   {...register(name, validationRules)}
+          {...(field ? field : {})}
         />
       </div>
 

@@ -38,7 +38,7 @@ function Step1({ nextStep }) {
         rules={{ required: " هذا الحقل مطلوب" }}
         render={({ field }) => (
           <Choose
-            {...field}
+            field={field}
             options={[
               {
                 value: "male",
@@ -61,10 +61,10 @@ function Step1({ nextStep }) {
         rules={{ required: " هذا الحقل مطلوب" }}
         render={({ field }) => (
           <Choose
+            field={field}
             isLoading={goalsLoading}
             disabled={isDisabled}
             isMulti={true}
-            {...field}
             options={goals || []}
             label={
               "الأهداف الشخصية: (خسارة وزن، بناء عضلات، تحسين اللياقة العامة)"
@@ -81,10 +81,10 @@ function Step1({ nextStep }) {
           rules={{ required: " هذا الحقل مطلوب" }}
           render={({ field }) => (
             <Choose
+              field={field}
               isLoading={MedicalIssueLoading}
               isMulti={true}
               disabled={isDisabled}
-              {...field}
               options={medicalIssues || []}
               label={
                 "الحالات الطبية: (إذا كانت هناك أي أمراض أو مشاكل صحية يجب معرفتها)"

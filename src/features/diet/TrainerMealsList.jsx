@@ -1,27 +1,21 @@
 import { IoCopyOutline } from "react-icons/io5";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useUserDietByDate } from "../../queries/useUserDietByDate";
 import Button from "../../ui/Button";
 import mealImage from "../../assets/meal.png";
 import Spinner from "../../ui/spinner/Spinner";
 
-function MealsList() {
-  const navigate = useNavigate();
+function TrainerMealsList() {
   const [searchParams] = useSearchParams();
   const currentDate = new Date().toISOString().split("T")[0];
-
   const date = searchParams.get("date") || currentDate;
 
   const { isLoading, userDietByDate } = useUserDietByDate(date);
-  if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
-
-  const handleNavigate = (id) => {
-    navigate(`diet/${id}`);
-  };
 
   return (
     <div className="w-full rounded-md bg-bg_color p-[20px] md:w-[50%]">
-      {!userDietByDate?.length && (
+      {isLoading && <Spinner className="!h-[5vh] w-full" />}
+      {!userDietByDate?.length && !isLoading && (
         <div className="text-center">لايوجد وجبات لعرضها</div>
       )}
 
@@ -39,14 +33,18 @@ function MealsList() {
           return (
             <div key={meal.id} className="rounded-md bg-[#000] p-[10px]">
               <div className="flex items-center justify-between">
-                <h2>{meal?.meal_type?.name}</h2>
+                <div className="flex items-center justify-center gap-1">
+                  <h2>{meal?.meal_type?.name}</h2>
+                </div>
                 <div className="flex items-center gap-[10px]">
                   <p>{meal.calories}</p>
                   <img src={mealImage} alt="Meal" className="w-[30px]" />
                 </div>
               </div>
               <div className="mt-[20px] flex items-center justify-between gap-[10px]">
-                <Button AriaLabel="addClassify">اضافه صنف</Button>
+                <Link to={`allMeals/${date}`} className="w-full">
+                  <Button AriaLabel="addClassify">اضافه صنف</Button>
+                </Link>
                 <div className="hidden w-[25%] md:block"></div>
                 <Button AriaLabel="ClassifyName" styles={"!bg-[#B0B0B0]"}>
                   {meal?.food?.name}
@@ -59,14 +57,8 @@ function MealsList() {
           );
         })}
       </div>
-
-      <div className="mt-[20px] flex items-center justify-center rounded-md bg-[#000] p-[10px]">
-        <Button AriaLabel="anotherMeal" styles={"!font-[700] !w-[100px]"}>
-          اضافه وجبه
-        </Button>
-      </div>
     </div>
   );
 }
 
-export default MealsList;
+export default TrainerMealsList;

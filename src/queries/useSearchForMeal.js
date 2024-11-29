@@ -1,18 +1,24 @@
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { searchForMeal as searchForMealApi } from "../services/dietsApi";
+import { useSearchParams } from "react-router-dom";
 
 export function useSearchForMeal() {
+  const [searchParams] = useSearchParams();
+
+  const search = searchParams.get("search");
+
   const {
-    mutate: searchForMeal,
-    isPending: isLoading,
+    data,
+    isPending: isSearching,
     error,
-  } = useMutation({
-    mutationFn: searchForMealApi,
+  } = useQuery({
+    queryKey: ["searchForMeal", search],
+    queryFn: () => searchForMealApi({ word: search }),
   });
 
   return {
-    searchForMeal,
-    isLoading,
+    searchData: data?.data?.foods,
+    isSearching,
     error,
   };
 }

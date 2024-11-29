@@ -35,11 +35,11 @@ export async function getUserExerciseByMuscle(id) {
 }
 /******************************************************************************/
 /* ADD NEW ROUND */
-export async function addRound({ exerciseId, data }) {
+export async function addRound({ exerciseId, finalData }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.post(`add-round/${exerciseId}`, data, {
+    const response = await axios.post(`add-round/${exerciseId}`, finalData, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
@@ -52,11 +52,11 @@ export async function addRound({ exerciseId, data }) {
 }
 /******************************************************************************/
 /* EDIT EXIST ROUND */
-export async function editExistRound({ roundId, data }) {
+export async function editExistRound({ roundId, finalData }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.post(`update-round/${roundId}`, data, {
+    const response = await axios.post(`update-round/${roundId}`, finalData, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",

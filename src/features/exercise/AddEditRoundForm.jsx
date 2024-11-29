@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { isOnlySpaces } from "../../utils/helpers";
 import { useAddRound } from "../../queries/useAddRound";
 import { useEditRound } from "../../queries/useEditRound";
@@ -7,13 +7,28 @@ import { NUMBER_INPUT_REGEX } from "../../utils/constant";
 import Button from "../../ui/Button";
 import GridContainer from "../../ui/GridContainer";
 import Input from "../../ui/Input";
-import SelectBox from "../../ui/SelectBox";
+import Choose from "../../ui/Choose";
 
 const initialState = {
-  repeat: "",
+  repeat: null,
   weight: "",
   set: "",
 };
+
+const repeatedOptions = [
+  {
+    value: "8",
+    label: "8",
+  },
+  {
+    value: "10",
+    label: "10",
+  },
+  {
+    value: "12",
+    label: "12 || +12",
+  },
+];
 
 export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
   const isEditingSession = Boolean(roundToEdit);
@@ -26,11 +41,14 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: isEditingSession
       ? {
-          repeat: roundToEdit?.repeat,
+          repeat: repeatedOptions.find(
+            (option) => option.value === roundToEdit?.repeat?.toString(),
+          ),
           weight: roundToEdit?.weight,
           set: roundToEdit?.set,
           note: roundToEdit?.note,
@@ -42,9 +60,10 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
   const isWorking = isEditingRound || isAddingRound;
 
   function onSubmit(data) {
+    const finalData = { ...data, repeat: data.repeat?.value };
     if (isEditingSession) {
       editRound(
-        { roundId: roundToEdit.id, data },
+        { roundId: roundToEdit.id, finalData },
         {
           onSuccess: () => {
             onCloseModal?.();
@@ -54,7 +73,7 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
       );
     } else {
       addRound(
-        { exerciseId, data },
+        { exerciseId, finalData },
         {
           onSuccess: () => {
             onCloseModal?.();
@@ -75,26 +94,19 @@ export default function AddEditRoundForm({ roundToEdit, onCloseModal }) {
       </h1>
 
       <GridContainer>
-        <SelectBox
-          options={[
-            {
-              value: "8",
-              title: "8",
-            },
-            {
-              value: "10",
-              title: "10",
-            },
-            {
-              value: "12",
-              title: "12 || +12",
-            },
-          ]}
-          label={"عدد التكرار"}
+        <Controller
           name="repeat"
-          register={register}
-          validationRules={{ required: "هذا الحقل مطلوب" }}
-          error={errors?.repeat?.message}
+          control={control}
+          rules={{ required: " هذا الحقل مطلوب" }}
+          render={({ field }) => (
+            <Choose
+              field={field}
+              disabled={isWorking}
+              options={repeatedOptions}
+              label={"عدد التكرار"}
+              error={errors?.repeat?.message}
+            />
+          )}
         />
 
         <Input

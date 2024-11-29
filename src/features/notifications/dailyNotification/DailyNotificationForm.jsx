@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { isOnlySpaces } from "../../../utils/helpers";
 import { useAnswerDailyQuestions } from "../../../queries/useAnswerDailyQuestions";
 import Input from "../../../ui/Input";
-import SelectBox from "../../../ui/SelectBox";
 import Button from "../../../ui/Button";
 import Spinner from "../../../ui/spinner/Spinner";
+import Choose from "../../../ui/Choose";
 import useUserDailyQuestions from "../../../queries/useUserDailyQuestions";
 
 const currentDate = new Date();
@@ -47,7 +47,7 @@ function DailyNotificationForm() {
     const transformedAnswers = Object.entries(data.answers).map(
       ([questionId, answer]) => ({
         question_id: Number(questionId),
-        answer,
+        answer: answer?.value ? answer.value.toString() : answer,
       }),
     );
 
@@ -78,7 +78,7 @@ function DailyNotificationForm() {
           const fieldName = `answers[${userQuestion?.id}]`;
           const options = userQuestion?.question?.options?.map((question) => ({
             value: Number(question.id),
-            title: question.option,
+            label: question.option,
           }));
           return (
             <Fragment key={userQuestion?.id}>
@@ -107,18 +107,21 @@ function DailyNotificationForm() {
                 />
               )}
               {userQuestion?.question?.type === "select" && (
-                <SelectBox
-                  disabled={isDisabled}
-                  options={options || []}
-                  label={userQuestion?.question?.question}
+                <Controller
                   name={fieldName}
-                  register={register}
-                  validationRules={{
-                    required: userQuestion?.is_required
-                      ? "هذا الحقل مطلوب"
-                      : false,
+                  control={control}
+                  rules={{
+                    required: "هذا الحقل مطلوب",
                   }}
-                  error={errors?.[fieldName]?.message}
+                  render={({ field }) => (
+                    <Choose
+                      field={field}
+                      disabled={isDisabled}
+                      options={options || []}
+                      label={userQuestion?.question?.question}
+                      error={errors.answers?.[userQuestion?.id]?.message}
+                    />
+                  )}
                 />
               )}
             </Fragment>

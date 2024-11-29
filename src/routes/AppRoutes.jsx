@@ -1,11 +1,13 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import Spinner from "../ui/spinner/Spinner";
-import Diet from "../pages/Diet";
+import Diet from "../pages/diet/Diet";
 import Subscriptions from "../pages/Subscriptions";
 import ProtectedRoute from "../ui/ProtectedRoute";
 import SingleSubscription from "../pages/SingleSubscription";
 import NotificationPopup from "../features/notifications/NotificationPopup";
+import TrainerDietPage from "../pages/diet/TrainerDietPage";
+import AllMealsWithDetails from "../pages/diet/AllMealsWithDetails";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -63,7 +65,7 @@ function AppRoutes() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Navigate replace to="daily" />} />{" "}
+            <Route index element={<Navigate replace to="daily" />} />
             <Route path="daily" element={<DailyNotification />} />
             <Route path="weekly" element={<WeeklyNotifications />} />
             <Route
@@ -88,14 +90,17 @@ function AppRoutes() {
           </Route>
 
           <Route
-            index
             path="/diet"
             element={
               <ProtectedRoute>
                 <Diet />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<TrainerDietPage />} />
+            <Route path="allMeals/:date" element={<AllMealsWithDetails />} />
+          </Route>
+
           <Route index path="/subscriptions" element={<Subscriptions />} />
           <Route
             index

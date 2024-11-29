@@ -1,22 +1,31 @@
-import { useForm } from "react-hook-form";
-import SelectBox from "../../../ui/SelectBox";
+import { Controller, useForm } from "react-hook-form";
+import Choose from "../../../ui/Choose";
+
+const weekRequirementsOptions = [
+  { value: "one", label: "one" },
+  { value: "two", label: "two" },
+];
 
 function WeekRequirements() {
   const {
-    register,
+    control,
     formState: { errors },
   } = useForm();
 
   return (
     <div className="my-[20px]">
-      <SelectBox
-        options={["two", "one"]}
-        label={"متطلبات الاسبوع"}
+      <Controller
         name="weekRequirements"
-        register={register}
-        validationRules={{ required: "هذا الحقل مطلوب" }}
-        error={errors?.weekRequirements?.message}
-        styles={" bg-[#FFFFFF29] text-[#fff]"}
+        control={control}
+        rules={{ required: " هذا الحقل مطلوب" }}
+        render={({ field }) => (
+          <Choose
+            field={field}
+            options={weekRequirementsOptions || []}
+            label={"متطلبات الاسبوع"}
+            error={errors?.weekRequirements?.message}
+          />
+        )}
       />
     </div>
   );

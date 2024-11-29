@@ -19,7 +19,7 @@ export async function signUp(userData) {
     const response = await axios.post("register", userData, {
       headers: {
         Authorization: `Bearer `,
-        // "Content-Type": "multipart/form-data",
+        "Content-Type": "multipart/form-data",
       },
     });
     return response.data;

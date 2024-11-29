@@ -2,18 +2,20 @@ import { useParams } from "react-router-dom";
 import { useSubscribeToPackage } from "../queries/useSubscribeToPackage";
 import { useGlobal } from "../queries/useGlobal";
 import { FaCheck } from "react-icons/fa6";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import Button from "../ui/Button";
 import Spinner from "../ui/spinner/Spinner";
-import SelectBox from "../ui/SelectBox";
+import Choose from "../ui/Choose";
+
+const paymentMethodOptions = [{ value: "cash", label: "كاش" }];
 
 function SingleSubscription() {
   const { id } = useParams();
   const { isLoading, subscribeToPackage } = useSubscribeToPackage();
   const { isLoading: isPackagesLoading, packages } = useGlobal();
   const {
-    register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -22,7 +24,7 @@ function SingleSubscription() {
   const packageToDisplay = packages?.find((pck) => pck?.id === parseInt(id));
 
   const onSubmit = (data) => {
-    const { paymentMethod } = data;
+    const paymentMethod = data.paymentMethod?.value;
 
     subscribeToPackage({ packageId: id, paymentMethod });
   };
@@ -53,16 +55,20 @@ function SingleSubscription() {
         </ul>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <SelectBox
-            disabled={isLoading || isPackagesLoading}
-            options={[{ value: "cash", title: "كاش" }]}
-            label={"وسيله الدفع:"}
+          <Controller
             name="paymentMethod"
-            register={register}
-            validationRules={{ required: "هذا الحقل مطلوب" }}
-            error={errors?.paymentMethod?.message}
+            control={control}
+            rules={{ required: " هذا الحقل مطلوب" }}
+            render={({ field }) => (
+              <Choose
+                field={field}
+                disabled={isLoading || isPackagesLoading}
+                options={paymentMethodOptions || []}
+                label={"وسيله الدفع:"}
+                error={errors?.paymentMethod?.message}
+              />
+            )}
           />
-
           <Button
             AriaLabel="confirmSubscription"
             type="submit"

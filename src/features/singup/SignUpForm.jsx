@@ -23,7 +23,7 @@ const MultiStepForm = () => {
     const finalData = { ...formData, ...data };
     const goals = finalData?.goal?.map((goal) => goal?.value);
     const medical_issues = finalData?.medicalCondition?.map(
-      (condition) => `${condition?.value}`,
+      (condition) => condition?.value,
     );
 
     signUp({
