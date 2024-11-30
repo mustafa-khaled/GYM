@@ -27,7 +27,7 @@ export default function InputSearch() {
   }
 
   return (
-    <div className="border-b border-slate-600 bg-bg_color py-3">
+    <div className="border-b border-slate-500 bg-bg_color py-3">
       <Container>
         <div className="relative">
           <input

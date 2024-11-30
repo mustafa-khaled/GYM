@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import mealImage from "../../assets/meal.png";
 
 function MealItem({ meal }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="w-full cursor-pointer py-3 text-[#ffffff]">
+    <div
+      onClick={() => navigate(`${meal?.id}`)}
+      className="w-full cursor-pointer py-3 text-[#ffffff]"
+    >
       <div className="flex w-full items-center justify-between sm:w-[50%]">
         <div className="space-y-[4px]">
           <h2 className="font-bold">{meal?.name}</h2>

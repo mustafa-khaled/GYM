@@ -8,6 +8,7 @@ import SingleSubscription from "../pages/SingleSubscription";
 import NotificationPopup from "../features/notifications/NotificationPopup";
 import TrainerDietPage from "../pages/diet/TrainerDietPage";
 import AllMealsWithDetails from "../pages/diet/AllMealsWithDetails";
+import SingleMeal from "../features/diet/SingleMeal";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -99,6 +100,7 @@ function AppRoutes() {
           >
             <Route index element={<TrainerDietPage />} />
             <Route path="allMeals" element={<AllMealsWithDetails />} />
+            <Route path="allMeals/:id" element={<SingleMeal />} />
           </Route>
 
           <Route index path="/subscriptions" element={<Subscriptions />} />

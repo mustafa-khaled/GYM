@@ -50,7 +50,7 @@ function SubscriptionsSection() {
                   )}
                 </p>
                 <p
-                  className={`${sub?.is_special ? "bg-gradient-to-br from-[#fff] to-[#fec0ab]" : "bg-transparent"} flex h-[66px] items-center rounded-[8px] border border-slate-300 p-[10px] text-[18px] font-[600] leading-[34px]`}
+                  className={`${sub?.is_special ? "bg-gradient-to-br from-[#fff] to-[#fec0ab]" : "bg-transparent"} flex h-[66px] items-center rounded-[8px] border border-slate-500 p-[10px] text-[18px] font-[600] leading-[34px]`}
                 >
                   {sub.duration}
                 </p>
