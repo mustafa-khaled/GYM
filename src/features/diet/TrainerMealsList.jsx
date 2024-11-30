@@ -9,7 +9,6 @@ function TrainerMealsList() {
   const [searchParams] = useSearchParams();
   const currentDate = new Date().toISOString().split("T")[0];
   const date = searchParams.get("date") || currentDate;
-
   const { isLoading, userDietByDate } = useUserDietByDate(date);
 
   return (
@@ -49,9 +48,11 @@ function TrainerMealsList() {
                 <Button AriaLabel="ClassifyName" styles={"!bg-[#B0B0B0]"}>
                   {meal?.food?.name}
                 </Button>
-                <Button AriaLabel="Quantity" styles={"!bg-[#B0B0B0]"}>
-                  {meal?.quantity}
-                </Button>
+                <Link to={`allMeals/${meal.id}`} className="w-full">
+                  <Button AriaLabel="Quantity" styles={"!bg-[#B0B0B0]"}>
+                    {meal?.quantity}
+                  </Button>
+                </Link>
               </div>
             </div>
           );
