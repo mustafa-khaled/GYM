@@ -48,7 +48,10 @@ function TrainerMealsList() {
                 <Button AriaLabel="ClassifyName" styles={"!bg-[#B0B0B0]"}>
                   {meal?.food?.name}
                 </Button>
-                <Link to={`allMeals/${meal.id}`} className="w-full">
+                <Link
+                  to={`allMeals/${meal.id}?operation=edit`}
+                  className="w-full"
+                >
                   <Button AriaLabel="Quantity" styles={"!bg-[#B0B0B0]"}>
                     {meal?.quantity}
                   </Button>

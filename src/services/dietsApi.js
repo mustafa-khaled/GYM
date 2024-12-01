@@ -66,3 +66,18 @@ export async function addNewMeal(data) {
     throw error;
   }
 }
+
+export async function getMealById(id) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  try {
+    const response = await axios.get(`meal/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

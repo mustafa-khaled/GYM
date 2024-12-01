@@ -9,7 +9,7 @@ export function useUpdateMealQuantity() {
 
   const {
     mutate: updateMealQuantity,
-    isPending: isLoading,
+    isPending: isUpdating,
     error,
   } = useMutation({
     mutationFn: updateMealQuantityApi,
@@ -25,7 +25,7 @@ export function useUpdateMealQuantity() {
 
   return {
     updateMealQuantity,
-    isLoading,
+    isUpdating,
     error,
   };
 }
