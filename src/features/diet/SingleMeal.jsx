@@ -58,7 +58,7 @@ function SingleMeal() {
             updateQuantity={updateQuantity}
             quantity={quantity}
           />
-          <SingleMealDetails />
+          <SingleMealDetails meal={meal} quantity={quantity} />
           <Button onClick={action} disabled={loading}>
             اختيار الوجبه
           </Button>
