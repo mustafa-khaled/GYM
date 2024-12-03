@@ -14,7 +14,7 @@ export function useUserExercises(selectedDate) {
   return {
     isLoading,
     muscleName: data?.data?.exercises?.[0]?.muscle?.name,
-    muscleImage: data?.data?.exercises?.[0]?.muscle?.image,
+    muscleImage: data?.data?.exercises?.[0]?.image,
     exercises: data?.data?.exercises,
     error,
   };

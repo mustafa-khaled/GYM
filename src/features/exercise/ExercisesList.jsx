@@ -1,6 +1,5 @@
 import { useUserExercises } from "../../queries/useUserExercises";
 import { useSearchParams } from "react-router-dom";
-import image from "../../assets/exerciseEx.png";
 import Spinner from "../../ui/spinner/Spinner";
 import ShowExercise from "./ShowExercise";
 
@@ -8,7 +7,7 @@ function ExercisesList() {
   const [searchParams] = useSearchParams();
   const currentDate = new Date().toISOString().split("T")[0];
   const selectedDate = searchParams.get("date") || currentDate;
-  const { isLoading, exercises } = useUserExercises(selectedDate);
+  const { isLoading, exercises, muscleImage } = useUserExercises(selectedDate);
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
   if (!exercises) return;
@@ -28,7 +27,7 @@ function ExercisesList() {
                 </span>
                 {ex.name}- {ex.r_p_e}
               </p>
-              <img src={image} alt="single exercise image" />
+              <img src={muscleImage} alt={ex.name} className="w-[80px]" />
             </div>
           </ShowExercise>
         );

@@ -4,9 +4,16 @@ import image from "../../assets/exerciseEx.png";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/spinner/Spinner";
 
+const getEmbedUrl = (url) => {
+  const urlObj = new URL(url);
+  const videoId = urlObj.pathname.split("/")[1]; // Extract the video ID from the path
+  return `https://www.youtube.com/embed/${videoId}`;
+};
+
 function ExerciseInfo({ onCloseModal, exerciseId }) {
   const [searchParams] = useSearchParams();
-  const date = searchParams.get("date");
+  const currentDate = new Date().toISOString().split("T")[0];
+  const date = searchParams.get("date") || currentDate;
 
   const { exerciseDetails, isLoading } = useUserExercisesByMuscle(exerciseId);
 
@@ -23,7 +30,7 @@ function ExerciseInfo({ onCloseModal, exerciseId }) {
         <iframe
           width="100%"
           height="300"
-          src="https://www.youtube.com/embed/oHgZuV1drKc"
+          src={getEmbedUrl(exerciseDetails?.url)}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
