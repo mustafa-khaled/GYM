@@ -9,8 +9,6 @@ const keyStyles =
 function EditWeightKeyboard({ item, onCloseModal }) {
   const { editRound } = useEditRound();
 
-  console.log(item);
-
   const [currentWeight, setCurrentWeight] = useState(item?.weight || 0);
 
   const handleKeyClick = (keyValue) => {
@@ -28,7 +26,7 @@ function EditWeightKeyboard({ item, onCloseModal }) {
   };
 
   function handleChangeWeight() {
-    const data = {
+    const finalData = {
       repeat: item?.repeat,
       weight: currentWeight,
       set: item?.set,
@@ -37,7 +35,7 @@ function EditWeightKeyboard({ item, onCloseModal }) {
     editRound(
       {
         roundId: item?.id,
-        ...data,
+        finalData,
       },
       {
         onSuccess: () => {
