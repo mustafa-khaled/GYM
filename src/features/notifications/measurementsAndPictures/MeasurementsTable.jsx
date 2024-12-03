@@ -1,24 +1,29 @@
 import Table from "../../../ui/Table";
 import MeasurementsRow from "./MeasurementsRow";
+import RateOfDevelopmentRow from "./RateOfDevelopmentRow";
 
-function MeasurementsTable({ data, title }) {
+function MeasurementsTable({ data, title, type }) {
   return (
     <Table>
       <Table.Header>
         <Table.Cell isHeader styles={"bg-primary text-[#000]"}>
           {title}
         </Table.Cell>
-        <Table.Cell isHeader>محيط الصدر</Table.Cell>
-        <Table.Cell isHeader>البطن علي السره</Table.Cell>
-        <Table.Cell isHeader>محيط الارداف</Table.Cell>
-        <Table.Cell isHeader>الزراع الايمن</Table.Cell>
-        <Table.Cell isHeader>الزراع الايسر</Table.Cell>
-        <Table.Cell isHeader>الفخذ الايسر</Table.Cell>
-        <Table.Cell isHeader>الفخذ الايمن</Table.Cell>
+        {data?.map((item) => (
+          <Table.Cell isHeader key={`header-${item?.id}`}>
+            {item?.measurement?.name}
+          </Table.Cell>
+        ))}
       </Table.Header>
       <Table.Body
-        data={data}
-        render={(item) => <MeasurementsRow item={item} key={item?.date} />}
+        data={[data]}
+        render={(rowData, index) =>
+          type === "first" ? (
+            <MeasurementsRow data={rowData} key={`row-${index}`} />
+          ) : (
+            <RateOfDevelopmentRow data={rowData} key={`row-${index}`} />
+          )
+        }
       />
     </Table>
   );

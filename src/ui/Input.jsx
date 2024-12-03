@@ -11,6 +11,7 @@ function Input({
   error,
   type = "text",
   disabled,
+  Styles,
 }) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -20,14 +21,14 @@ function Input({
 
   return (
     <div>
-      <label htmlFor={placeholder}>{label}</label>
+      {label && <label htmlFor={placeholder}>{label}</label>}
       <div className="relative">
         <input
           disabled={disabled}
           type={isPasswordVisible && type === "password" ? "text" : type}
           placeholder={placeholder}
           id={placeholder}
-          className="form-input"
+          className={`form-input ${Styles}`}
           {...register(name, validationRules)}
         />
         {type === "password" && (

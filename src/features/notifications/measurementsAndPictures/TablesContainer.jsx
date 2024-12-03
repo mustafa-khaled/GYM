@@ -2,10 +2,7 @@ import { useSubscribeDuration } from "../../../queries/useSubscribeDuration";
 import MeasurementsTable from "./MeasurementsTable";
 import TableTitle from "./TableTitle";
 
-const data1 = [{ date: "1" }];
-const data2 = [{ date: "1" }];
-
-function TablesContainer() {
+function TablesContainer({ tableData }) {
   const { data } = useSubscribeDuration();
 
   return (
@@ -13,9 +10,10 @@ function TablesContainer() {
       <TableTitle />
       <MeasurementsTable
         title={`قياس الاسبوع ${data?.current_week || 0}`}
-        data={data1}
+        data={tableData}
+        type="first"
       />
-      <MeasurementsTable title="معدل التطور" data={data2} />
+      <MeasurementsTable title="معدل التطور" data={tableData} />
     </div>
   );
 }
