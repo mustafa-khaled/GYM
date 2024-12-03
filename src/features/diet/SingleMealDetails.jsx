@@ -22,7 +22,7 @@ function SingleMealDetails({ progress = 50, meal, quantity }) {
             />
           </div>
           <div className="relative">
-            <span className="relative z-10 mb-1.5 block">البرةتين</span>
+            <span className="relative z-10 mb-1.5 block">البروتين</span>
             <div className="absolute inset-0 border-b-2 border-slate-500"></div>
             <div
               className="absolute inset-0 border-b-2 border-chart_color1"

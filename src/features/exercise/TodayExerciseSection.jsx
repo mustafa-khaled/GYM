@@ -7,7 +7,8 @@ import ExercisesList from "./ExercisesList";
 
 function TodayExerciseSection() {
   const [searchParams] = useSearchParams();
-  const selectedDate = searchParams.get("date");
+  const currentDate = new Date().toISOString().split("T")[0];
+  const selectedDate = searchParams.get("date") || currentDate;
   const { muscleName } = useUserExercises(selectedDate);
 
   return (
@@ -23,9 +24,6 @@ function TodayExerciseSection() {
           <img src={imag2} alt="main excercise" />
         </div>
       </div>
-      {/* <StartNow>
-        <Button AriaLabel="startNow" variant="tertiary">ابدا الان</Button>
-      </StartNow> */}
     </div>
   );
 }

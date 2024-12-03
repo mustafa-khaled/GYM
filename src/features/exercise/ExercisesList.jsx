@@ -1,12 +1,13 @@
 import { useUserExercises } from "../../queries/useUserExercises";
+import { useSearchParams } from "react-router-dom";
 import image from "../../assets/exerciseEx.png";
 import Spinner from "../../ui/spinner/Spinner";
 import ShowExercise from "./ShowExercise";
-import { useSearchParams } from "react-router-dom";
 
 function ExercisesList() {
   const [searchParams] = useSearchParams();
-  const selectedDate = searchParams.get("date");
+  const currentDate = new Date().toISOString().split("T")[0];
+  const selectedDate = searchParams.get("date") || currentDate;
   const { isLoading, exercises } = useUserExercises(selectedDate);
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
