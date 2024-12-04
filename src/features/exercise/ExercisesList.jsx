@@ -10,7 +10,10 @@ function ExercisesList() {
   const { isLoading, exercises, muscleImage } = useUserExercises(selectedDate);
 
   if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
-  if (!exercises) return;
+  if (!exercises?.length)
+    return (
+      <div className="w-full text-center text-xl">لا توجد تمارين لعرضها</div>
+    );
 
   return (
     <div className="w-full space-y-[20px] self-start">

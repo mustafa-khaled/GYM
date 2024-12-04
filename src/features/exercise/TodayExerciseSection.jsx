@@ -13,18 +13,19 @@ function TodayExerciseSection() {
     <div className="rounded-md bg-bg_color p-[20px]">
       <div className="flex items-center justify-center gap-[20px] text-[20px] font-[700] leading-[24px] md:text-[32px]">
         <h1>{muscleName}</h1>
-        <img
-          src={muscleImage || ""}
-          alt="Single Muscle"
-          className="w-[100px]"
-        />
+        {muscleImage && (
+          <img src={muscleImage || ""} alt={muscleName} className="w-[100px]" />
+        )}
       </div>
       <div className="my-[20px] flex flex-col items-center gap-[20px] md:flex-row">
         {/* ffff */}
         <ExercisesList />
-        <div className="flex w-full items-center justify-center md:justify-end">
-          <img src={muscleImage || ""} alt={muscleName || ""} />
-        </div>
+
+        {muscleImage && (
+          <div className="flex w-full items-center justify-center md:justify-end">
+            <img src={muscleImage || ""} alt={muscleName || ""} />
+          </div>
+        )}
       </div>
     </div>
   );
