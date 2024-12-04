@@ -54,15 +54,21 @@ function SingleMealDetails({ progress = 50, meal, quantity }) {
           <span>السعرات</span>
         </div>
         <div className="flex flex-col items-center text-2xl">
-          <span className="font-semibold">{meal?.food?.protein_per_gram}g</span>
+          <span className="font-semibold">
+            {((meal?.food?.protein_per_gram || 0) * quantity).toFixed(2)}g
+          </span>
           <span>البروتين</span>
         </div>
         <div className="flex flex-col items-center text-2xl">
-          <span className="font-semibold">{meal?.food?.carbs_per_gram}g</span>
+          <span className="font-semibold">
+            {((meal?.food?.carbs_per_gram || 0) * quantity).toFixed(2)}g
+          </span>
           <span>الكارب</span>
         </div>
         <div className="flex flex-col items-center text-2xl">
-          <span className="font-semibold">{meal?.food?.fat_per_gram}g</span>
+          <span className="font-semibold">
+            {((meal?.food?.fat_per_gram || 0) * quantity).toFixed(2)}g
+          </span>
           <span>الدهون</span>
         </div>
       </div>
