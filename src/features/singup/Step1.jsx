@@ -78,7 +78,6 @@ function Step1({ nextStep }) {
         <Controller
           name="medicalCondition"
           control={control}
-          rules={{ required: " هذا الحقل مطلوب" }}
           render={({ field }) => (
             <Choose
               field={field}

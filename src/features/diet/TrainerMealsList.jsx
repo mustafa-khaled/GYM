@@ -27,6 +27,7 @@ function TrainerMealsList() {
           AriaLabel="copyTable"
           styles={"!font-[700]"}
           onClick={handleCopyMeal}
+          disabled={!userDietByDate?.length}
         >
           <span className="flex items-center justify-center gap-[10px]">
             <IoCopyOutline />
