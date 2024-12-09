@@ -113,6 +113,7 @@ function Choose({
   isMulti,
   onChange,
   field,
+  placeholder = "--اختر--",
 }) {
   return (
     <div className={"w-full"}>
@@ -130,7 +131,7 @@ function Choose({
           className="h-full w-full p-[3px] ltr:pr-0 rtl:pl-0"
           options={options}
           isLoading={isLoading}
-          placeholder={"--اختر--"}
+          placeholder={placeholder}
           isDisabled={disabled}
           isMulti={isMulti}
           menuPosition="fixed"

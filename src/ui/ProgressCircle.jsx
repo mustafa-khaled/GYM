@@ -27,7 +27,7 @@ function ProgressCircle({ title, color, count }) {
         ></circle>
       </svg>
 
-      <p className="absolute left-[50%] top-[50%] flex translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-[10px] text-sm">
+      <p className="absolute left-[50%] top-[50%] flex translate-x-[-50%] translate-y-[-50%] flex-col items-center text-sm">
         <span>{title}</span>
         <span>{count}</span>
       </p>

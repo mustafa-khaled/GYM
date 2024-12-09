@@ -1,6 +1,6 @@
 import { useWeightEvaluation } from "../../../queries/useWeightEvaluation";
 import Spinner from "../../../ui/spinner/Spinner";
-import TableTitle from "./TableTitle";
+import TableTitle from "../TableTitle";
 import TrainingOption from "./TrainingOption";
 import WeightsDevelopmentTitle from "./WeightsDevelopmentTitle";
 

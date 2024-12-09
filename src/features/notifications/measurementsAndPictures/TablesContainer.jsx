@@ -1,5 +1,5 @@
 import MeasurementsTable from "./MeasurementsTable";
-import TableTitle from "./TableTitle";
+import TableTitle from "../TableTitle";
 
 function TablesContainer({ tableData, weekNumber }) {
   return (

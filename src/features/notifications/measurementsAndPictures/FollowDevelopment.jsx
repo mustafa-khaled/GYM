@@ -45,7 +45,7 @@ function FollowDevelopment() {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mt-[20px] flex flex-col items-center gap-[20px] lg:flex-row">
+        <div className="mt-[20px] flex flex-col items-start gap-[20px] lg:flex-row">
           <TablesContainer
             tableData={nonImageMeasurements}
             weekNumber={weekNumber}
