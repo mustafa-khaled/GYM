@@ -71,3 +71,19 @@ export async function answerWeekEvaluation(data) {
     throw error;
   }
 }
+
+export async function addMeasurement(data) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+  try {
+    const response = await axios.post("add-measurement", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

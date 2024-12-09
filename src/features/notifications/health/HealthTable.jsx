@@ -24,7 +24,7 @@ function HealthTable({ data }) {
       </Table.Header>
       <Table.Body
         data={data}
-        render={(item) => <HealthRow item={item} key={item?.date} />}
+        render={(item) => <HealthRow item={item} key={item?.id} />}
       />
     </Table>
   );

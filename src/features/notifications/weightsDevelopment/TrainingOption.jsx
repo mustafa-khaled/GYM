@@ -16,7 +16,7 @@ function TrainingOption({ title, data }) {
         onClick={toggleHandler}
       >
         <h2 className="flex items-center justify-between rounded-md bg-[#FFFFFF29] p-[10px] text-[20px] font-[600] leading-[42px]">
-          {title}
+          {`تمرين اليوم ${title}`}
           <IoIosArrowDown
             className={`transition-all ${showTable ? "rotate-[180deg]" : ""}`}
           />

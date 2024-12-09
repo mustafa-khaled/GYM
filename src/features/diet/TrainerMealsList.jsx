@@ -1,6 +1,7 @@
 import { IoCopyOutline } from "react-icons/io5";
 import { Link, useSearchParams } from "react-router-dom";
 import { useUserDietByDate } from "../../queries/useUserDietByDate";
+import { useCopyMeal } from "../../queries/useCopyMeal";
 import Button from "../../ui/Button";
 import mealImage from "../../assets/meal.png";
 import Spinner from "../../ui/spinner/Spinner";
@@ -9,7 +10,10 @@ function TrainerMealsList() {
   const [searchParams] = useSearchParams();
   const currentDate = new Date().toISOString().split("T")[0];
   const date = searchParams.get("date") || currentDate;
+
   const { isLoading, userDietByDate } = useUserDietByDate(date);
+  const { copyMeal } = useCopyMeal();
+  const handleCopyMeal = () => copyMeal({ id: userDietByDate?.[0]?.id });
 
   return (
     <div className="w-full rounded-md bg-bg_color p-[20px] md:w-[50%]">
@@ -19,7 +23,11 @@ function TrainerMealsList() {
       )}
 
       {userDietByDate?.length > 0 && (
-        <Button AriaLabel="copyTable" styles={"!font-[700]"}>
+        <Button
+          AriaLabel="copyTable"
+          styles={"!font-[700]"}
+          onClick={handleCopyMeal}
+        >
           <span className="flex items-center justify-center gap-[10px]">
             <IoCopyOutline />
             نسخ الجدول لبكره

@@ -1,15 +1,12 @@
-import { useSubscribeDuration } from "../../../queries/useSubscribeDuration";
 import MeasurementsTable from "./MeasurementsTable";
 import TableTitle from "./TableTitle";
 
-function TablesContainer({ tableData }) {
-  const { data } = useSubscribeDuration();
-
+function TablesContainer({ tableData, weekNumber }) {
   return (
     <div className="flex w-full flex-col gap-[20px] lg:w-[60%]">
       <TableTitle />
       <MeasurementsTable
-        title={`قياس الاسبوع ${data?.current_week || 0}`}
+        title={`قياس الاسبوع ${weekNumber}`}
         data={tableData}
         type="first"
       />

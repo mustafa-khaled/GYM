@@ -1,45 +1,25 @@
+import { useWeightEvaluation } from "../../../queries/useWeightEvaluation";
+import Spinner from "../../../ui/spinner/Spinner";
 import TableTitle from "./TableTitle";
 import TrainingOption from "./TrainingOption";
 import WeightsDevelopmentTitle from "./WeightsDevelopmentTitle";
 
-const options = [
-  {
-    title: "تمرين اليوم الاول",
-    id: 1,
-    data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
-  },
-
-  {
-    title: "تمرين اليوم الثاني",
-    id: 2,
-    data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
-  },
-
-  {
-    title: "تمرين اليوم الثالث",
-    id: 3,
-    data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
-  },
-
-  {
-    title: "تمرين اليوم الرابع",
-    id: 4,
-    data: [{ date: 1 }, { date: 2 }, { date: 3 }, { date: 4 }],
-  },
-];
-
 function WeightsDevelopmentSection() {
+  const { isLoading, exercises } = useWeightEvaluation();
+
+  if (isLoading) return <Spinner className="!h-[20vh] w-full" />;
+
   return (
     <div className="bg-bg_color p-[20px]">
       <WeightsDevelopmentTitle />
       <TableTitle />
 
-      {options?.map((option) => {
+      {exercises?.map((exercise, index) => {
         return (
           <TrainingOption
-            key={option.id}
-            title={option.title}
-            data={option.data}
+            key={index}
+            title={exercise.day}
+            data={exercise.exercises}
           />
         );
       })}

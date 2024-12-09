@@ -22,8 +22,8 @@ function WeightsDevelopmentTable({ data }) {
       </Table.Header>
       <Table.Body
         data={data}
-        render={(item) => (
-          <WeightsDevelopmentRow item={item} key={item?.date} />
+        render={(item, index) => (
+          <WeightsDevelopmentRow item={item} key={index} />
         )}
       />
     </Table>

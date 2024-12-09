@@ -1,5 +1,4 @@
 import { IoIosArrowDown } from "react-icons/io";
-import { PiNotepadBold } from "react-icons/pi";
 
 const twoBtnStyles =
   "flex items-center gap-[10px] bg-[#FFFFFF] text-[#000] p-[10px] font-[600] rounded-md cursor-pointer";
@@ -14,10 +13,6 @@ function TableTitle() {
         <span className={`${twoBtnStyles}`}>
           الاسبوع الحالي
           <IoIosArrowDown />
-        </span>
-        <span className={`${twoBtnStyles}`}>
-          <PiNotepadBold />
-          اضافه ملاحظه
         </span>
       </div>
     </div>

@@ -81,3 +81,18 @@ export async function getMealById(id) {
     throw error;
   }
 }
+
+export async function copyMeal({ id }) {
+  const token = localStorage.getItem("GYM_USER_TOKEN");
+
+  try {
+    const response = await axios.get(`copy-meal/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
