@@ -1,8 +1,8 @@
+import { useCallback, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { debounce } from "../../utils/helpers";
 import { FaSearch } from "react-icons/fa";
 import Container from "../../ui/Container";
-import { useCallback, useState } from "react";
-import { debounce } from "../../utils/helpers";
 
 export default function InputSearch() {
   const [searchParams, setSearchParams] = useSearchParams();

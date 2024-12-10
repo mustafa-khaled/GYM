@@ -82,11 +82,11 @@ export async function getMealById(id) {
   }
 }
 
-export async function copyMeal({ id }) {
+export async function copyMeal({ date }) {
   const token = localStorage.getItem("GYM_USER_TOKEN");
 
   try {
-    const response = await axios.get(`copy-meal/${id}`, {
+    const response = await axios.get(`copy-meal/${date}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

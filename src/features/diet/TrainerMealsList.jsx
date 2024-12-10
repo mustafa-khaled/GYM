@@ -13,7 +13,7 @@ function TrainerMealsList() {
 
   const { isLoading, userDietByDate } = useUserDietByDate(date);
   const { copyMeal } = useCopyMeal();
-  const handleCopyMeal = () => copyMeal({ id: userDietByDate?.[0]?.id });
+  const handleCopyMeal = () => copyMeal({ date });
 
   return (
     <div className="w-full rounded-md bg-bg_color p-[20px] md:w-[50%]">

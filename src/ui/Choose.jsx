@@ -67,12 +67,12 @@ const customStyles = {
     backgroundColor: state.isSelected
       ? "#2c9bcb"
       : state.isFocused
-        ? "#e4f1fa"
+        ? "#FFB445"
         : null,
     color: state.isSelected ? "white" : state.isFocused ? "#353535" : "#353535",
     "&:hover": {
-      backgroundColor: "#e4f1fa",
-      color: "black",
+      backgroundColor: "#FFB445",
+      color: "white",
     },
   }),
   multiValue: (provided) => ({
@@ -136,7 +136,6 @@ function Choose({
           isMulti={isMulti}
           menuPosition="fixed"
           menuPortalTarget={document.body}
-          menuShouldBlockScroll={true}
           onChange={onChange}
           {...(field ? field : {})}
         />

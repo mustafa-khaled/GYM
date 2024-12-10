@@ -24,6 +24,7 @@ export async function getUserNotificationsMeasurements(weekNumber) {
         Authorization: `Bearer ${token}`,
       },
     });
+
     return response.data;
   } catch (error) {
     throw error;
